@@ -1,4 +1,4 @@
-const topNav = () => {
+const TopNav = () => {
   return `
     <nav class="nav">
       <span class="logo">
@@ -27,4 +27,4 @@ const topNav = () => {
     </nav>
   `
 }
-export default topNav();
+export default TopNav;

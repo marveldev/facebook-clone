@@ -1,15 +1,15 @@
-import topNav from './modules/TopNav.js';
-import sideNav from './modules/SideNav.js';
-import sideNav2 from './modules/sideNav2.js';
+import TopNav from './modules/TopNav.js';
+import LeftSideNav from './modules/LeftSideNav.js';
+import RightSideNav from './modules/RightSideNav.js';
 import MainContent from './modules/MainContent.js';
 
 const app = () => {
   return `
-    ${topNav}
+    ${TopNav()}
     <section class="grid-container">
-      ${sideNav}
-      ${MainContent}
-      ${sideNav2}
+      ${LeftSideNav()}
+      ${MainContent()}
+      ${RightSideNav()}
     </section>
   `
 }

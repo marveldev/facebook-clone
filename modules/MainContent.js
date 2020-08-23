@@ -1,4 +1,4 @@
-const mainPage = () => {
+const MainContent = () => {
   return `
     <section class="main-content">
       <div class="user-options">
@@ -68,4 +68,4 @@ const mainPage = () => {
     </section>
   `
 }
-export default mainPage();
+export default MainContent;
