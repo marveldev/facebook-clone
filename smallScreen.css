@@ -1,0 +1,120 @@
+@media screen and (max-width: 1024px) {	
+  .nav {
+    height: 4em;
+  }
+
+  .logo {
+    font-size: 1.5em;
+  }
+
+  .logo>a {
+    font-size: 2em;
+  }
+
+  .logo>input {
+    width: 2em;
+    height: 2em;
+  }
+
+  .logo>input::placeholder {
+    opacity: 0;
+  }
+
+  .image-link {
+    display: none;
+  }
+
+  .primary-nav-links {
+    margin-left: 14em;
+  }
+
+  .primary-nav-links>a{
+    padding: 0.5em 1em;
+    margin: 0.5em;
+  }
+
+  .secondary-nav-links {
+    margin-left: 7em;
+  }
+
+  .fa-search {
+    font-size: 1em;
+    left: 1.8em;
+  }
+
+  .left-side-nav {
+    display: none;
+  }
+
+  .grid-container {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  #modal-content{
+    top: 4em;
+  }
+}
+
+@media screen and (max-width: 768px) {	
+  .primary-nav-links {
+    margin-left: 5em;
+  }
+
+  .primary-nav-links>a {
+    padding: 0.5em 0.7em;
+    margin: 0;
+  }
+
+  .right-side-nav {
+    display: none;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    position: relative;
+  }
+
+  .main-content { 
+    width: 100%;
+    background-color: #F0F2F5;
+  }
+
+  .main-content>div {
+    width: 35em;
+    margin: auto;
+    height: auto;
+    margin-top: 1em;
+  }
+
+  .options {
+    padding-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .primary-nav-links {
+    display: none;
+  }
+
+  .secondary-nav-links {
+    margin-left: 2em;
+  }
+
+  .main-content>div {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .user-profile>input {
+    width: 80%;
+  }
+  
+  .options>a {
+    padding: 0.5em 0.7em 0.5em 0.7em;
+    margin-left: 0.5em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  
+}
