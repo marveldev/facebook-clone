@@ -7,6 +7,7 @@
 
 .side-nav {
   width: 25em;
+  height: 95%;
 }
 
 .side-nav>a {
@@ -65,4 +66,46 @@
   width: 25em;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.right {
+  display: none;
+}
+
+#root {
+  z-index: 1; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+#modal-content{
+  display: none;
+  position: fixed; 
+  top: 3.5em;
+  right: 2em;
+  width: 25em;
+  height: fit-content;
+  border-radius: 0.8em;
+  background-color: #fff;
+  padding: 0 1em 5em 1em;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+#modal-content>a {
+  display: block;
+  padding: 1em 4em 1em 1em;
+  background-color: #fff;
+  margin-top: 1em;
+  border-radius: 0.8em;
+  color: #000;
+  text-decoration: none;
+}
+
+#modal-content>a:hover {
+ background-color: #D8DADF;
+}
+
+#modal-content>a i {
+  color: #0000ff;
+  margin-right: 1em;
+  vertical-align: middle;
 }

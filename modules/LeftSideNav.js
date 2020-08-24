@@ -13,7 +13,8 @@ const LeftSideNav = () => {
         <a href="#"><i class="material-icons">&#xe63a;</i>Videos</a>
         <a href="#"><i class="fa fa-calendar-times-o"></i>Events</a>
         <a href="#"><i class='fas fa-users'></i>Groups</a>
-        <a href="#"><i class="fa fa-caret-down"></i>See More</a>
+        <a href="#" id="see-more"><i class="fa fa-caret-down"></i>See More</a>
+        <nav class="right side-nav">
           <a href="#"><i class='fas fa-user-alt'></i>Friend Lists</a>
           <a href="#"><i class="material-icons">videogame_asset</i>Games</a>
           <a href="#"><i class="fa fa-briefcase"></i>Jobs</a>
@@ -21,7 +22,8 @@ const LeftSideNav = () => {
           <a href="#"><i class='fab fa-facebook-messenger'></i>Messenger Kids</a>
           <a href="#"><i class='fas fa-hand-holding'></i>Offers</a>
           <a href="#"><i class='fas fa-cloud-sun'></i>Weather</a>
-          <a href="#"><i class="material-icons">arrow_drop_up</i>See Less</a>
+          <a href="#" id="see-less"><i class="material-icons">arrow_drop_up</i>See Less</a>
+        </nav> 
       </nav>
     </section>  
   `

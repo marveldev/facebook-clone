@@ -17,11 +17,12 @@ const TopNav = () => {
           <img src="./team1.jpg" class="nav-image" alt="my profile picture">
           Marvelwonders
         </a>
-        <span class="icon-links">
-          <a href="#"><i class='fas fa-plus'></i></a>
-          <a href="#"><i class="fab fa-facebook-messenger"></i></a>
-          <a href="#"><i class="fa fa-bell"></i></a>
-          <a href="#"><i class="fa fa-caret-down"></i></a>
+        <span>
+          <a href="#" class="icon-link"><i class='fas fa-plus'></i></a>
+          <a href="#" class="icon-link"><i class="fab fa-facebook-messenger"></i></a>
+          <a href="#" class="icon-link"><i class="fa fa-bell"></i></a>
+          <a href="#" id="open-right-nav-modal"><i class="fa fa-caret-down"></i></a>
+          <a href="#" id="close-right-nav-modal"><i class="fa fa-caret-down"></i></a>
         </span>
       </span>
     </nav>
