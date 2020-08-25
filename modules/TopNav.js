@@ -1,8 +1,8 @@
 const TopNav = () => {
   return `
     <nav class="nav">
+      <a href="#"><i class='fab fa-facebook'></i></a>
       <span class="logo">
-        <a href="#"><i class='fab fa-facebook'></i></a>
         <i class="fa fa-search"></i>
         <input type="text" placeholder="Search Facebook">
       </span>
@@ -15,7 +15,7 @@ const TopNav = () => {
       <span class="secondary-nav-links">
         <a href="#" class="image-link">
           <img src="./team1.jpg" class="nav-image" alt="my profile picture">
-          Marvelwonders
+          <strong>Marvelwonders</strong>
         </a>
         <span>
           <a href="#" class="icon-link"><i class='fas fa-plus'></i></a>
