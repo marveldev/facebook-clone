@@ -3,6 +3,16 @@
     height: 4em;
   }
 
+  .fa-search {
+    position: relative;
+    right: 0em;
+    top: 0em;
+  }
+
+  .item:last-child {
+    margin-bottom: 10em;
+  }
+
   .logo {
     font-size: 1.5em;
   }
@@ -56,13 +66,36 @@
 }
 
 @media screen and (max-width: 768px) {	
+  .fa-search {
+    display: none;
+  }
+
+  .logo>input::placeholder {
+    opacity: 1;
+    font-size: 0.5em;
+  }
+
+  .logo>input {
+    width: 7em;
+    height: 1.5em;
+    padding: 0 0 0 1em;
+  }
+
   .primary-nav-links {
-    margin-left: 5em;
+    margin-left: 2em;
   }
 
   .primary-nav-links>a {
     padding: 0.5em 0.7em;
     margin: 0;
+  }
+
+  .secondary-nav-links {
+    margin-left: 2em;
+  }
+
+  .nav {
+    height: 4.8em;
   }
 
   .right-side-nav {
@@ -92,12 +125,29 @@
 }
 
 @media screen and (max-width: 425px) {
+  .nav {
+    height: 4.2em;
+  }
+
+  .fa-facebook {
+    margin-left: 0;
+  }
+
+  #open-right-nav-modal,
+  #close-right-nav-modal {
+    padding: 0.6em 0.8em;
+  }
+
   .primary-nav-links {
     display: none;
   }
 
   .secondary-nav-links {
     margin-left: 2em;
+  }
+
+  .add-photo {
+    width: 31em;
   }
 
   .main-content>div {
@@ -113,8 +163,71 @@
     padding: 0.5em 0.7em 0.5em 0.7em;
     margin-left: 0.5em;
   }
+
+  .icon-link {
+    font-size: 1.2em;
+    padding: 0.6em;
+  }
 }
 
-@media screen and (max-width: 425px) {
-  
+@media screen and (max-width: 375px) {
+  .options {
+    margin: 0.2em ;
+  }
+
+  .options>a {
+    padding: 0.3em 0.5em 0.5em 0.5em;
+    margin-left: 0.1em;
+  }
+
+  #open-right-nav-modal,
+  #close-right-nav-modal {
+    padding: 0.45em 0.75em;
+  }
+
+  .secondary-nav-links {
+    margin-left: 0;
+  }
+
+  .icon-link {
+    font-size: 1em;
+    padding: 0.6em;
+  }
+
+  .add-photo {
+    width: 28em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .options>a:last-child {
+    display: none;
+  }
+
+  .options>a {
+    padding: 0.4em 0.8em 0.4em 0.8em;
+    margin: 0.5em;
+  }
+
+  .options {
+    margin-top: 1em;
+  }
+
+  .user {
+    margin-top: 0;
+  }
+
+  .add-photo {
+    width: 23em;
+  }
+
+  .logo>input {
+    width: 5em;
+    padding: 0 0 0 0.5em;
+  }
+
+  #modal-content{
+    right: 1em;
+    width: 18em;
+  }
 }

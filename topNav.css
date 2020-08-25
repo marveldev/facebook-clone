@@ -10,7 +10,8 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 4em;
+  height: 4.2em;
+  padding: 0.5em;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.2); 
 }
@@ -22,26 +23,25 @@ body {
   object-fit: cover;
 }
 
-.logo {
-  margin-left: 1em;
-}
-
-.logo>a {
+.fa-facebook {
   font-size: 3em;
   vertical-align: middle;
+  margin-left: 0.5em;
 }
 
 .fa-search {
-  position: relative;
-  left: 2em;
+  position: absolute;
+  left: 6em;
+  top: 1.7em;
   color: #808080;
 }
 
 .logo>input {
+  margin: 0;
   vertical-align: middle;
   width: 18em;
   height: 3em;
-  padding: 0em 0em 0em 2em;
+  padding: 0em 0em 0em 2.5em;
   border-radius: 2em;
   border: none;
   background-color:#F0F2F5;
@@ -80,10 +80,10 @@ body {
 .image-link {
   padding: 0.8em 0.8em 0.8em 0.5em;
   margin-right: 1em;
-  font-weight: bold;
   color: #000000;
   background-color: #F0F2F5;
   border-radius: 25em;
+  text-decoration: none !important;
 }
 
 #close-right-nav-modal {

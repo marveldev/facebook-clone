@@ -48,6 +48,7 @@
 
 .options>a i {
   color: #0000ff;
+  vertical-align: middle;
 }
 
 .item {
@@ -69,4 +70,12 @@
   height: 42em;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.user {
+  margin-top: 0.2em;
+}
+
+.user>a {
+  padding: 0.5em 1em 0.5em 1em;
 }

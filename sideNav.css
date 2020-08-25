@@ -80,7 +80,7 @@
 #modal-content{
   display: none;
   position: fixed; 
-  top: 3.5em;
+  top: 4em;
   right: 2em;
   width: 25em;
   height: fit-content;
