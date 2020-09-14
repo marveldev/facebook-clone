@@ -1,0 +1,115 @@
+#dropdown-overlay {
+  display: none; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1; 
+  width: 100%; 
+  height: 100%; 
+  background-color: #ffffff00;  
+}
+
+#dropdown-content {
+  display: none;
+  position: fixed; 
+  top: 4.5em;
+  right: 2em;
+  width: 25em;
+  z-index: 1;
+  height: fit-content;
+  border-radius: 0.8em;
+  background-color: #fff;
+  padding: 0 1em 5em 1em;
+  transition: all 0s ease 0s;
+  box-shadow: 5px 5px 10px 5px #00000033;
+}
+
+#dropdown-content>a {
+  display: block;
+  padding: 1em 4em 1em 1em;
+  background-color: #fff;
+  margin-top: 1em;
+  border-radius: 0.8em;
+  color: #000;
+  text-decoration: none;
+}
+
+#dropdown-content a:hover {
+ background-color: #D8DADF;
+}
+
+#dropdown-content>a i {
+  color: #0000ff;
+  margin-right: 1em;
+  vertical-align: middle;
+  font-size: 1.5em;
+}
+
+#dropdown-photo {
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5em;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  left: 8em;
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 25px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

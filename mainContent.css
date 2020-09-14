@@ -1,7 +1,22 @@
+.grid-container {
+  position: absolute;
+  left: 22em;
+  top: 5em;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 75%;
+}
 
 .main-content { 
   margin: auto;
   height: auto;
+  width: 75%;
+}
+
+.user-options {
+  height: 9em;
+  background-color: #fff;
+  border-radius: 0.5em;
 }
 
 .user-profile {
@@ -10,12 +25,17 @@
   border-bottom: 1px solid #E4E6EB;
 }
 
-.user-profile>input {
-  width: 90%;
-  padding: 0.8em 4em 0.8em 1em;
+.user-profile>textarea {
+  width: 80%;
+  height: 2.5em;
+  font-size: 1.3em;
+  vertical-align: middle;
+  padding: 0.58em 1em;
   border-radius: 2em;
   border: none;
   background-color:#F0F2F5;
+  resize: none;
+  cursor: pointer;
 }
 
 .profile-photo {
@@ -23,17 +43,18 @@
   width: 3em;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 0.5em;
 }
 
 .user-profile>p {
   margin-top: 0.5em;
 }
 
-.options {
+.chat-options {
   margin-top: 1em;
 }
 
-.options>a {
+.chat-options a {
   padding: 0.8em 1em 0.8em 1em;
   margin-left: 1em;
   border-radius: 0.5em;
@@ -42,40 +63,53 @@
   vertical-align: middle;
 }
 
-.options>a:hover {
+.chat-options a:hover {
   background-color:#F0F2F5;
 }
 
-.options>a i {
+.chat-options a i {
   color: #0000ff;
-  vertical-align: middle;
+  vertical-align: bottom;
+  margin-right: 0.3em;
 }
 
-.item {
-  margin-top: 1em;
-  margin-bottom: 1em;
+.chat-options a:nth-child(2) i {
+  font-size: 1.3em;
+  vertical-align: baseline;
+}
+
+.user-content {
+  margin: 1em 0;
   height: auto;
   background-color: #fff;
   border-radius: 0.5em;
 }
 
 .add-photo {
-  width: 35em;
+  width: 100%;
   height: 35em;
   object-fit: cover;
+  margin-bottom: 1.5em;
 }
 
-.main-content:hover {
-  margin-top: 0;
-  height: 42em;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.tweet-options a {
+  color: #7B7C80;
+  font-size: 1.2em;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  border-radius: 0.5em;
+  margin: 0 0.5em;
+  text-decoration: none;
 }
 
-.user {
-  margin-top: 0.2em;
+.tweet-options {
+ height: 3em;
 }
 
-.user>a {
-  padding: 0.5em 1em 0.5em 1em;
+.tweet-options a i {
+  margin-right: 0.5em;
+  color: #0000ff;
+}
+
+.tweet-options a:hover {
+  background-color:#F0F2F5;
 }

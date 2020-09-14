@@ -125,109 +125,59 @@
 }
 
 @media screen and (max-width: 425px) {
-  .nav {
-    height: 4.2em;
+  .top-nav {
+    height: 5em;
   }
 
-  .fa-facebook {
-    margin-left: 0;
-  }
-
-  #open-right-nav-modal,
-  #close-right-nav-modal {
-    padding: 0.6em 0.8em;
-  }
-
-  .primary-nav-links {
-    display: none;
-  }
-
-  .secondary-nav-links {
-    margin-left: 2em;
-  }
-
-  .add-photo {
-    width: 31em;
-  }
-
-  .main-content>div {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .user-profile>input {
-    width: 80%;
-  }
-  
-  .options>a {
-    padding: 0.5em 0.7em 0.5em 0.7em;
-    margin-left: 0.5em;
-  }
-
-  .icon-link {
-    font-size: 1.2em;
-    padding: 0.6em;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .options {
-    margin: 0.2em ;
-  }
-
-  .options>a {
-    padding: 0.3em 0.5em 0.5em 0.5em;
+  .logo {
+    font-size: 3em;
     margin-left: 0.1em;
   }
 
-  #open-right-nav-modal,
-  #close-right-nav-modal {
-    padding: 0.45em 0.75em;
+  .search-input input {
+    width: 12em;
+    height: 3em;
+    padding: 0em 0em 0em 1.5em;
   }
 
   .secondary-nav-links {
-    margin-left: 0;
+    font-size: 0.9em;
+    margin-left: 5em;
   }
 
-  .icon-link {
-    font-size: 1em;
-    padding: 0.6em;
-  }
-
-  .add-photo {
-    width: 28em;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .options>a:last-child {
+  .left-side-nav {
     display: none;
   }
 
-  .options>a {
-    padding: 0.4em 0.8em 0.4em 0.8em;
-    margin: 0.5em;
+  #open-right-nav-modal,
+  #close-right-nav-modal {
+    padding: 1em 0.8em;
+  }
+  
+   .primary-nav-links {
+    display: none;
   }
 
-  .options {
-    margin-top: 1em;
+  .grid-container {
+    left: 0em;
+    grid-template-columns: 2fr;
+    width: 100%;
   }
 
-  .user {
-    margin-top: 0;
+  .chat-options {
+    height: 3em;
   }
 
-  .add-photo {
-    width: 23em;
+  .user-content p,
+  .user-content strong {
+    font-size: 1.3em;
   }
 
-  .logo>input {
-    width: 5em;
-    padding: 0 0 0 0.5em;
-  }
+  #dropdown-content {
+   margin-top: 1em;
+  } 
 
-  #modal-content{
-    right: 1em;
-    width: 18em;
+  .dark-theme .main-content {
+    background-color: #18191A;
   }
 }

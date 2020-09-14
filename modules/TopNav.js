@@ -1,8 +1,8 @@
 const TopNav = () => {
   return `
-    <nav class="nav">
-      <a href="#"><i class='fab fa-facebook'></i></a>
-      <span class="logo">
+    <nav class="top-nav">
+      <a href="#" class="logo"><i class="fab fa-facebook"></i></a>
+      <span class="search-input">
         <i class="fa fa-search"></i>
         <input type="text" placeholder="Search Facebook">
       </span>
@@ -21,8 +21,8 @@ const TopNav = () => {
           <a href="#" class="icon-link"><i class='fas fa-plus'></i></a>
           <a href="#" class="icon-link"><i class="fab fa-facebook-messenger"></i></a>
           <a href="#" class="icon-link"><i class="fa fa-bell"></i></a>
-          <a href="#" id="open-right-nav-modal"><i class="fa fa-caret-down"></i></a>
-          <a href="#" id="close-right-nav-modal"><i class="fa fa-caret-down"></i></a>
+          <a href="#" id="open-nav-dropdown"><i class="fa fa-caret-down"></i></a>
+          <a href="#" id="close-nav-dropdown"><i class="fa fa-caret-down"></i></a>
         </span>
       </span>
     </nav>
