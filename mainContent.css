@@ -68,7 +68,7 @@
 }
 
 .chat-options a i {
-  color: #0000ff;
+  color: #337AB7;
   vertical-align: bottom;
   margin-right: 0.3em;
 }
@@ -107,7 +107,7 @@
 
 .tweet-options a i {
   margin-right: 0.5em;
-  color: #0000ff;
+  color: #337AB7;
 }
 
 .tweet-options a:hover {

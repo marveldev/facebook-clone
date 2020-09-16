@@ -10,7 +10,7 @@ const ModalNav = () => {
       <a href="#"><i class="material-icons">&#xe87f;</i><strong>Feedback</strong></a>
       <a href="#"><i class="material-icons">settings</i><strong>Settings & Privacy</strong></a>
       <a href="#"><i class="fa fa-question-circle"></i><strong>Help & Support</strong></a>
-      <a href="#">
+      <a href="#" id="themeSwitchContainer">
         <i class='fas fa-moon'></i>
         <strong>Dark Mode</strong>
         <label class="switch">

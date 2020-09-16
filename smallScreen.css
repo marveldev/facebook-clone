@@ -1,55 +1,39 @@
-@media screen and (max-width: 1024px) {	
-  .nav {
-    height: 4em;
-  }
-
-  .fa-search {
-    position: relative;
-    right: 0em;
-    top: 0em;
-  }
-
-  .item:last-child {
-    margin-bottom: 10em;
+@media screen and (max-width: 768px) {	
+  .top-nav {
+    height: 6em;
   }
 
   .logo {
-    font-size: 1.5em;
+    font-size: 4em;
+    margin-left: 0.1em;
   }
 
-  .logo>a {
-    font-size: 2em;
+  .fa-search {
+    display: none;
   }
 
-  .logo>input {
-    width: 2em;
-    height: 2em;
+  .search-input input {
+    width: 10em;
+    height: 4em;
+    padding-left: 0.8em;
   }
 
-  .logo>input::placeholder {
-    opacity: 0;
+  .primary-nav-links {
+    margin-left: 0.5em;
+  }
+
+  .primary-nav-links>a {
+    padding: 0.5em 0.7em;
+    margin: 0.2em;
   }
 
   .image-link {
     display: none;
   }
 
-  .primary-nav-links {
-    margin-left: 14em;
-  }
-
-  .primary-nav-links>a{
-    padding: 0.5em 1em;
-    margin: 0.5em;
-  }
-
   .secondary-nav-links {
-    margin-left: 7em;
-  }
-
-  .fa-search {
-    font-size: 1em;
-    left: 1.8em;
+    font-size: 1.2em;
+    margin-left: 1em;
   }
 
   .left-side-nav {
@@ -57,70 +41,37 @@
   }
 
   .grid-container {
-    grid-template-columns: 2fr 1fr;
-  }
-
-  #modal-content{
-    top: 4em;
-  }
-}
-
-@media screen and (max-width: 768px) {	
-  .fa-search {
-    display: none;
-  }
-
-  .logo>input::placeholder {
-    opacity: 1;
-    font-size: 0.5em;
-  }
-
-  .logo>input {
-    width: 7em;
-    height: 1.5em;
-    padding: 0 0 0 1em;
-  }
-
-  .primary-nav-links {
-    margin-left: 2em;
-  }
-
-  .primary-nav-links>a {
-    padding: 0.5em 0.7em;
-    margin: 0;
-  }
-
-  .secondary-nav-links {
-    margin-left: 2em;
-  }
-
-  .nav {
-    height: 4.8em;
+    left: 0;
+    top: 7.5em;
+    grid-template-columns: 2fr;
+    width: 100%;
   }
 
   .right-side-nav {
     display: none;
   }
 
-  .grid-container {
-    grid-template-columns: 1fr;
-    position: relative;
+  #dropdown-content {
+    margin-top: 1.8em;
+  } 
+
+  #dropdown-content a:not(:first-child) {
+    font-size: 1.2em;
   }
 
-  .main-content { 
-    width: 100%;
-    background-color: #F0F2F5;
+  .tweet-options>a {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  #dropdown-content>a:nth-child(6) {
+    padding: 1.2em 1em 0;
+    height: 3.5em; 
   }
 
-  .main-content>div {
-    width: 35em;
-    margin: auto;
-    height: auto;
-    margin-top: 1em;
-  }
-
-  .options {
-    padding-bottom: 1em;
+  .switch {
+    margin: 0 5em;
+    bottom: 1.8em;
   }
 }
 
@@ -129,20 +80,24 @@
     height: 5em;
   }
 
+  .image-link {
+    display: none;
+  }
+
   .logo {
     font-size: 3em;
     margin-left: 0.1em;
   }
 
   .search-input input {
-    width: 12em;
-    height: 3em;
-    padding: 0em 0em 0em 1.5em;
+    width: 10em;
+    height: 4em;
+    padding-left: 0.8em;
   }
 
   .secondary-nav-links {
-    font-size: 0.9em;
-    margin-left: 5em;
+    font-size: 1em;
+    margin-left: 0.5em;
   }
 
   .left-side-nav {
@@ -154,18 +109,30 @@
     padding: 1em 0.8em;
   }
   
-   .primary-nav-links {
+  .primary-nav-links {
     display: none;
   }
 
   .grid-container {
-    left: 0em;
-    grid-template-columns: 2fr;
+    left: 0;
+    top: 5.5em;
+  }
+
+  .main-content {
     width: 100%;
   }
 
   .chat-options {
     height: 3em;
+  }
+
+  .chat-options a {
+    padding: 0.8em 0.5em;
+    margin-left: 0.5em;
+  }
+
+  .user-profile>textarea {
+    font-size: 1.1em;
   }
 
   .user-content p,
@@ -174,10 +141,53 @@
   }
 
   #dropdown-content {
-   margin-top: 1em;
+    margin-top: 0.5em;
   } 
+
+  .tweet-options>a {
+    font-size: 1.2em;
+  }
+
+  #dropdown-content a:not(:first-child) {
+    font-size: 1em;
+  }
+
+  #dropdown-content>a:nth-child(6) {
+    padding: 1.2em 1em 0;
+    height: 3.5em; 
+  }
+
+  .switch {
+    margin: 0 8em;
+    bottom: 1.8em;
+  }
 
   .dark-theme .main-content {
     background-color: #18191A;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .search-input input {
+    width: 7em;
+    height: 3em;
+  }
+
+  .tweet-options>a {
+    font-size: 1.1em;
+  }
+
+  .chat-options a {
+    padding: 0.8em 0.2em;
+    margin-left: 0;
+  }
+
+  #dropdown-content {
+    left: 2em;
+  }
+
+  .switch {
+    margin: 0 8em;
+    bottom: 2em;
   }
 }
