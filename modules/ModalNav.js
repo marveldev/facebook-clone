@@ -20,6 +20,21 @@ const ModalNav = () => {
       </a>
       <a href="#"><i class="glyphicon">&#xe163;</i><strong>Log Out</strong></a>
     </div>
+    <div id="createPostOverlay"></div>
+    <div class="create-post-modal">
+      <div id="createPost">
+        <strong>Create Post</strong>
+        <button id="closePostButton">X</button>
+      </div>
+      <div id="postContent"> 
+        <a href="#">
+          <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
+        </a>
+        <strong>Jane Doe</strong>
+        <textarea id="userPost" placeholder="What's on your mind, Marvelwonders?"></textarea>
+        <button id="userPostButton">POST</button>
+      </div>
+    </div>
   `
 }
 export default ModalNav;

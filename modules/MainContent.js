@@ -6,7 +6,7 @@ const MainContent = () => {
           <a href="#">
             <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
           </a>
-          <textarea placeholder="What's on your mind, Marvelwonders?"></textarea>
+          <textarea id="user-post" placeholder="What's on your mind, Marvelwonders?"></textarea>
         </div>
         <div class="chat-options">
           <a href="#"><i class="material-icons">&#xe413;</i>Photo/Video</a>

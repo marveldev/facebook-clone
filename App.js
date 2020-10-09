@@ -20,10 +20,6 @@ document.getElementById('root').innerHTML = app();
 
 const openLeftNavModal = document.querySelector('#see-more');
 const closeLeftNavModal = document.querySelector('#see-less');
-const openTopNavDropdown = document.querySelector('#open-nav-dropdown');
-const closeTopNavDropdown = document.querySelector('#close-nav-dropdown');
-const dropdownOverlay = document.querySelector('#dropdown-overlay');
-const toggleBox = document.querySelector('#toggleBox');
 
 openLeftNavModal.addEventListener('click', () => {
   openLeftNavModal.nextElementSibling.style.display = 'block';
@@ -32,6 +28,11 @@ openLeftNavModal.addEventListener('click', () => {
 closeLeftNavModal.addEventListener('click', () => {
   closeLeftNavModal.parentElement.style.display = 'none';
 })
+
+const openTopNavDropdown = document.querySelector('#open-nav-dropdown');
+const closeTopNavDropdown = document.querySelector('#close-nav-dropdown');
+const dropdownOverlay = document.querySelector('#dropdown-overlay');
+const toggleBox = document.querySelector('#toggleBox');
 
 const toggleDropdown = (
   dropdownDisplay,
@@ -71,4 +72,22 @@ themeSwitcher.addEventListener('click', () => {
     document.querySelector('body').style.backgroundColor = '#F0F2F5';
     toggleBox.checked = false
   }
+})
+
+const userPostModal = document.querySelector('#user-post');
+userPostModal.addEventListener('click', () => {
+  document.querySelector('.create-post-modal').style.display = 'block';
+  document.querySelector('#createPostOverlay').style.display = 'block';
+})
+
+const userPostOverlay = document.querySelector('#createPostOverlay');
+userPostOverlay.addEventListener('click', () => {
+  document.querySelector('.create-post-modal').style.display = 'none';
+  document.querySelector('#createPostOverlay').style.display = 'none';
+})
+
+const closePostModalButton = document.querySelector('#closePostButton');
+closePostModalButton.addEventListener('click', () => {
+  document.querySelector('.create-post-modal').style.display = 'none';
+  document.querySelector('#createPostOverlay').style.display = 'none';
 })
