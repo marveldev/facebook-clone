@@ -31,7 +31,7 @@ const ModalNav = () => {
           <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
         </a>
         <strong>Jane Doe</strong>
-        <textarea id="userPost" placeholder="What's on your mind, Marvelwonders?"></textarea>
+        <textarea id="userPostInput" placeholder="What's on your mind, Marvelwonders?"></textarea>
         <button id="userPostButton">POST</button>
       </div>
     </div>

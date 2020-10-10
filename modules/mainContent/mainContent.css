@@ -68,7 +68,7 @@
 }
 
 .chat-options a i {
-  color: #337AB7;
+  color: #1877F2;
   vertical-align: bottom;
   margin-right: 0.3em;
 }
@@ -158,7 +158,7 @@
   margin: 1em 2em 2em 2em;
 }
 
-#userPost {
+#userPostInput {
   margin: 1.5em 0;
   width: 100%;
   height: 10em;
