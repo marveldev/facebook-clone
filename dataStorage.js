@@ -1,4 +1,4 @@
-const request = indexedDB.open('facebook', 3);
+const request = indexedDB.open('facebook', 2);
 
 request.onsuccess = () => {
   const database = request.result;
@@ -45,11 +45,10 @@ const getEntryFromDb = () => {
     }
   
     getData.onerror = () => {
-      console.log(`error adding to ${storeName}`)
+      console.log(`error adding to 'post'`)
       reject(getData.error);
     }
   })
-
   return Promise.resolve(data);
 }
 
@@ -60,4 +59,4 @@ const clearAllEntries = () => {
   store.clear();
 }
 
-export { request , addEntryToDb , clearAllEntries, getEntryFromDb };
+export { request, addEntryToDb, getEntryFromDb, clearAllEntries };

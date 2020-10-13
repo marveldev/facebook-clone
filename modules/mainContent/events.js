@@ -1,4 +1,5 @@
 import { addEntryToDb, clearAllEntries } from '../../dataStorage.js';
+import addUserEntry from './userEntry.js';
 
 const addPostEventListeners = () => {
   const userPostModal = document.querySelector('#user-post');
@@ -17,9 +18,11 @@ const addPostEventListeners = () => {
     
   userPostButton.addEventListener('click', () => {
     const userPostInput = document.querySelector('#userPostInput').value;
-    clearAllEntries();
     addEntryToDb(userPostInput);
     toggleUserPostModal('none');
+    addUserEntry();
+    // clearAllEntries();
+
   })
 
   userPostOverlay.addEventListener('click', () => {
