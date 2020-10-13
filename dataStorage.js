@@ -41,7 +41,6 @@ const getEntryFromDb = () => {
   
     getData.onsuccess = () => {
       resolve(getData.result)
-      console.log(getData.result);
     }
   
     getData.onerror = () => {

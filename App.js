@@ -25,9 +25,9 @@ request.onsuccess = () => {
   document.getElementById('root').innerHTML = app();
   toggleLeftNavModal();
   dropdown();
-
   addPostEventListeners();
-  // addUserEntry();
+  addUserEntry();
+  addPostEventListeners()
 }
 
 request.onerror = () => {
