@@ -6,7 +6,7 @@ import ModalNav from './modules/ModalNav.js';
 import toggleLeftNavModal from './modules/sideNav/events.js';
 import dropdown from './modules/topNav/events.js';
 import { request, addEntryToDb } from './dataStorage.js';
-import addPostEventListeners from './modules/mainContent/events.js';
+import { addPostEventListeners, addPhotoEventListeners } from './modules/mainContent/events.js';
 import addUserEntry from './modules/mainContent/userEntry.js';
 
 const app = () => {
@@ -27,7 +27,7 @@ request.onsuccess = () => {
   dropdown();
   addPostEventListeners();
   addUserEntry();
-  addPostEventListeners()
+  addPhotoEventListeners()
 }
 
 request.onerror = () => {

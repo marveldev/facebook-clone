@@ -33,4 +33,17 @@ const addPostEventListeners = async () => {
     toggleUserPostModal('none');
   })
 }
-export default addPostEventListeners;
+
+const addPhotoEventListeners = () => {
+  const photo = document.querySelector('#addPhoto');
+  const target = document.querySelector('#userPhoto');
+  const photoReader = new FileReader();
+
+  photoReader.onload = function(e) { target.src = this.result; };
+
+  photo.addEventListener('change', () => {
+    photoReader.readAsDataURL(photo.files[0])
+  })
+}
+
+export { addPostEventListeners , addPhotoEventListeners}

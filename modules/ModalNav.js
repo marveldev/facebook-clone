@@ -26,27 +26,27 @@ const ModalNav = () => {
         <strong>Create Post</strong>
         <button id="closePostButton">X</button>
       </div>
-      <div id="postContent"> 
+      <div id="userInfo"> 
         <a href="#">
           <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
         </a>
         <strong>Jane Doe</strong>
-        <textarea id="userPostInput" placeholder="What's on your mind, Marvelwonders?"></textarea>
-        <div>
-          <button>X</button>
-          <img src="" id="preview-photo" alt="photo">
-        </div>
-        <div class="post-options">
-          <span>Add To Your Post</span>
-          <input type="file" id="addPhoto">
-          <label for="addPhoto">
-            <i class="material-icons">&#xe413;</i>
-          </label>
-          <a href="#"><i class='fas fa-user-tag'></i></a>
-          <a href="#"><i class="material-icons">&#xe420;</i></a>
-        </div>
-        <button id="userPostButton">POST</button>
       </div>
+      <div id="previewEntry">
+        <textarea id="userPostInput" placeholder="What's on your mind, Marvelwonders?"></textarea>
+        <button>X</button>
+        <img src="./team1.jpg" id="userPhoto" alt="photo">
+      </div>
+      <div class="post-options">
+        <span>Add To Your Post</span>
+        <input type="file" id="addPhoto">
+        <label for="addPhoto">
+          <i class="material-icons" id="photoIcon">&#xe413;</i>
+        </label>
+        <a href="#"><i class='fas fa-user-tag' id="userTagIcon"></i></a>
+        <a href="#"><i class="material-icons" id="smilyFaceIcon">&#xe420;</i></a>
+      </div>
+      <button id="userPostButton">POST</button>
     </div>
   `
 }
