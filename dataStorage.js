@@ -4,7 +4,7 @@ request.onsuccess = () => {
   const database = request.result;
   const transaction = database.transaction(['post'], 'readwrite')
   const store = transaction.objectStore('post');
-  store.add({ description: 'Hey, I am Jane!' })
+  store.add({post: 'a post', userPhoto: 'a picture'})
 }
 
 request.onupgradeneeded = () => {
@@ -16,19 +16,19 @@ request.onerror = () => {
   console.log('request unsuccessful');
 }
 
-const addEntryToDb = (userPost) => {
+const addEntryToDb = (entry) => {
   const database = request.result;
   console.log(database);
   const transaction = database.transaction(['post'], 'readwrite');
   const store = transaction.objectStore('post')
-  store.add({ userFeeling: userPost });
+  store.add(entry);
 
   transaction.oncomplete = () => {
-    alert (`entry added sucessfully to ${'post'}`)
+    alert (`entry added sucessfully to 'post'`)
   }
 
   transaction.onerror = () => {
-    console.log(`error adding to ${'post'}`)
+    console.log(`error adding to 'post'`)
   }
 }
 

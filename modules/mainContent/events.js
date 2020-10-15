@@ -1,7 +1,48 @@
-import { addEntryToDb, clearAllEntries } from '../../dataStorage.js';
-import addUserEntry from './userEntry.js';
+import { addEntryToDb } from '../../dataStorage.js';
 
-const addPostEventListeners = async () => {
+const addEntries = () => {
+  const output = document.querySelector('.main-content');
+  const userPost = document.querySelector('#userPostInput').value;
+  const target = document.querySelector('#userPhoto');
+  const imageSource = target.src
+
+  const userEntryItems = `
+    <div class="user-content">
+      <div class="user-profile"> 
+        <a href="#">
+          <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
+        </a>
+        <strong>Jane Doe</strong>
+        <p id="userPost">${userPost}</p>
+      </div>
+      <a href="#">
+        <img src=${target.src} class="add-photo" alt="photo">
+      </a>
+      <div class="tweet-options">
+        <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
+        <a href="#"><i class='far fa-comment-alt'></i>Comment</a>
+        <a href="#"><i class="fa fa-share"></i>Share</a>
+      </div>
+    </div>  
+  `
+  output.innerHTML += userEntryItems;
+  addEntryToDb({post: userPost, userPhoto: imageSource});
+}
+
+const addPhotoEventListeners = () => {
+  const photo = document.querySelector('#addPhoto');
+  const target = document.querySelector('#userPhoto');
+  
+  photo.addEventListener('change', () => {
+    const photoReader = new FileReader();
+    photoReader.readAsDataURL(photo.files[0])
+    photoReader.addEventListener('load', () => {
+      target.src = photoReader.result;
+    })
+  })
+}
+
+const addPostEventListeners = () => {
   const userPostModal = document.querySelector('#user-post');
   const userPostOverlay = document.querySelector('#createPostOverlay');
   const closePostModalButton = document.querySelector('#closePostButton');
@@ -14,15 +55,12 @@ const addPostEventListeners = async () => {
 
   userPostModal.addEventListener('click', () => {
     toggleUserPostModal('block');
+    console.log('ok');
   })
     
   userPostButton.addEventListener('click', () => {
-    // clearAllEntries();
-    const userPostInput = document.querySelector('#userPostInput').value;
-    addEntryToDb(userPostInput);
-    // addUserEntry();
+    addEntries();
     toggleUserPostModal('none');
-
   })
 
   userPostOverlay.addEventListener('click', () => {
@@ -34,16 +72,4 @@ const addPostEventListeners = async () => {
   })
 }
 
-const addPhotoEventListeners = () => {
-  const photo = document.querySelector('#addPhoto');
-  const target = document.querySelector('#userPhoto');
-  const photoReader = new FileReader();
-
-  photoReader.onload = function(e) { target.src = this.result; };
-
-  photo.addEventListener('change', () => {
-    photoReader.readAsDataURL(photo.files[0])
-  })
-}
-
-export { addPostEventListeners , addPhotoEventListeners}
+export { addPostEventListeners, addPhotoEventListeners }

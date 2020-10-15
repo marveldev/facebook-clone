@@ -5,9 +5,9 @@ import MainContent from './modules/mainContent/MainContent.js';
 import ModalNav from './modules/ModalNav.js';
 import toggleLeftNavModal from './modules/sideNav/events.js';
 import dropdown from './modules/topNav/events.js';
-import { request, addEntryToDb } from './dataStorage.js';
+import { request } from './dataStorage.js';
 import { addPostEventListeners, addPhotoEventListeners } from './modules/mainContent/events.js';
-import addUserEntry from './modules/mainContent/userEntry.js';
+import addUserEntryFromDb from './modules/mainContent/userEntry.js';
 
 const app = () => {
   return `
@@ -26,8 +26,8 @@ request.onsuccess = () => {
   toggleLeftNavModal();
   dropdown();
   addPostEventListeners();
-  addUserEntry();
-  addPhotoEventListeners()
+  addPhotoEventListeners();
+  addUserEntryFromDb();
 }
 
 request.onerror = () => {

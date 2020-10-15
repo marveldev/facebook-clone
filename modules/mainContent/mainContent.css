@@ -8,7 +8,7 @@
 }
 
 .main-content { 
-  margin: auto;
+  margin: 0 auto;
   height: auto;
   width: 75%;
 }
@@ -126,7 +126,7 @@
 }
 
 .create-post-modal {
-  /* display: none; */
+  display: none;
   position: fixed;
   left: 28em;
   top: 7em;

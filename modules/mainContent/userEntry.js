@@ -1,9 +1,8 @@
 import { getEntryFromDb } from '../../dataStorage.js';
 
-const addUserEntry = async () => {
+const addUserEntryFromDb = async () => {
   const output = document.querySelector('.main-content');
   const userEntry = await getEntryFromDb();
-  console.log(userEntry);
   const userEntryItems = userEntry.map((singleEntry) => {
     return `  
       <div class="user-content">
@@ -12,11 +11,10 @@ const addUserEntry = async () => {
             <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
           </a>
           <strong>Jane Doe</strong>
-          <p id="userPost">${singleEntry.userFeeling}</p>
+          <p id="userPost">${singleEntry.post}</p>
         </div>
         <a href="#">
-          <img src="https://images.pexels.com/photos/2108769/pexels-photo-2108769.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            class="add-photo" alt="picture of a girl">
+          <img src=${singleEntry.userPhoto} class="add-photo" alt="photo">
         </a>
         <div class="tweet-options">
           <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
@@ -26,6 +24,6 @@ const addUserEntry = async () => {
       </div>   
     `
   })
-  output.innerHTML += userEntryItems;
+  output.innerHTML += userEntryItems.join('');
 }
-export default addUserEntry;
+export default addUserEntryFromDb;
