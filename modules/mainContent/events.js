@@ -1,7 +1,7 @@
 import { addEntryToDb } from '../../dataStorage.js';
 
 const addEntries = () => {
-  const output = document.querySelector('.main-content');
+  const output = document.querySelector('.output');
   const userPost = document.querySelector('#userPostInput').value;
   const target = document.querySelector('#userPhoto');
   const imageSource = target.src
@@ -70,6 +70,15 @@ const addPostEventListeners = () => {
   closePostModalButton.addEventListener('click', () => {
     toggleUserPostModal('none');
   })
+
+  const removePhoto = () => {
+    const target = document.querySelector('#userPhoto');
+    // target.style.display = 'none'
+    // target.src = '';
+  }
+
+  const previewImageButton = document.querySelector('#previewImageButton');
+  previewImageButton.addEventListener('click', removePhoto);
 }
 
 export { addPostEventListeners, addPhotoEventListeners }

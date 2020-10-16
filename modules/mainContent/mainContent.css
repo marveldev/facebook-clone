@@ -183,6 +183,12 @@
   display: none;
 }
 
+#userPhoto {
+  height: 28em;
+  object-fit: cover;
+  border-radius: 0.5em;
+}
+
 .post-options {
   padding: 0.5em 0;
   border: 2px solid #CED0D4;
@@ -214,9 +220,9 @@
   overflow-x: hidden;
 }
 
-#previewEntry>button {
+#previewImageButton {
   position: relative;
-  bottom: 9em;
+  bottom: 11em;
   left: 31em;
   border: unset;
   border-radius: 50%;

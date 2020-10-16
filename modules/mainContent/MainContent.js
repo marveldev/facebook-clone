@@ -14,6 +14,7 @@ const MainContent = () => {
           <a href="#"><i class="material-icons">&#xe420;</i>Feeling/Activity</a>
         </div>
       </div>
+      <div class="output"></div>
     </section>   
   `
 }

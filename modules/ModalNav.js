@@ -34,7 +34,7 @@ const ModalNav = () => {
       </div>
       <div id="previewEntry">
         <textarea id="userPostInput" placeholder="What's on your mind, Marvelwonders?"></textarea>
-        <button>X</button>
+        <button id="previewImageButton">X</button>
         <img src="./team1.jpg" id="userPhoto" alt="photo">
       </div>
       <div class="post-options">

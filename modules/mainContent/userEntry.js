@@ -1,7 +1,7 @@
 import { getEntryFromDb } from '../../dataStorage.js';
 
 const addUserEntryFromDb = async () => {
-  const output = document.querySelector('.main-content');
+  const output = document.querySelector('.output');
   const userEntry = await getEntryFromDb();
   const userEntryItems = userEntry.map((singleEntry) => {
     return `  
