@@ -104,3 +104,40 @@
 .dark-theme .logo {
   color: #dee0e2;
 }
+
+.dark-theme #createPostOverlay {
+  background-color: #0e0e0e9d; 
+}
+
+.dark-theme .create-post-modal {
+  background-color: #242526;
+}
+
+.dark-theme #createPost {
+  border-bottom: 1px solid #3A3B3C;
+  color: #E4E6EB;
+}
+
+.dark-theme #closePostButton {
+  background-color: #3A3B3C;
+}
+
+.dark-theme #userPostInput {
+  background-color: #242526;
+}
+
+.dark-theme .post-options {
+  border: 1.5px solid #3A3B3C;
+}
+
+.dark-theme #previewImageButton {
+  background-color: #3A3B3C;
+}
+
+.dark-theme #previewEntry::-webkit-scrollbar-track {
+  background: #242526;
+}
+ 
+.dark-theme #previewEntry::-webkit-scrollbar-thumb {
+  background: #666768; 
+}

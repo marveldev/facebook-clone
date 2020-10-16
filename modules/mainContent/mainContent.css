@@ -159,13 +159,14 @@
 }
 
 #userPostInput {
-  margin: 1em 2em 2.5em 2em;
+  margin: 1em 0 2.5em 1.3em;
   width: 90%;
   height: auto;
   resize: none;
   border: none;
   outline: none;
   overflow: hidden;
+  font-size: 1.5em;
 }
 
 #userPostButton {
@@ -268,4 +269,3 @@
   background: #BCC0C4; 
   border-radius: 0.5em;
 }
-
