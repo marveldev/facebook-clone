@@ -3,8 +3,8 @@ import { addEntryToDb } from '../../dataStorage.js';
 const addEntries = () => {
   const output = document.querySelector('.output');
   const userPost = document.querySelector('#userPostInput').value;
-  const target = document.querySelector('#userPhoto');
-  const imageSource = target.src
+  const userPhoto = document.querySelector('#userPhoto');
+  const imageSource = userPhoto.src
 
   const userEntryItems = `
     <div class="user-content">
@@ -16,7 +16,7 @@ const addEntries = () => {
         <p id="userPost">${userPost}</p>
       </div>
       <a href="#">
-        <img src=${target.src} class="add-photo" alt="photo">
+        <img src=${userPhoto.src} class="add-photo" alt="photo">
       </a>
       <div class="tweet-options">
         <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
@@ -31,13 +31,13 @@ const addEntries = () => {
 
 const addPhotoEventListeners = () => {
   const photo = document.querySelector('#addPhoto');
-  const target = document.querySelector('#userPhoto');
+  const userPhoto = document.querySelector('#userPhoto');
   
   photo.addEventListener('change', () => {
     const photoReader = new FileReader();
     photoReader.readAsDataURL(photo.files[0])
     photoReader.addEventListener('load', () => {
-      target.src = photoReader.result;
+      userPhoto.src = photoReader.result;
     })
   })
 }
@@ -72,9 +72,9 @@ const addPostEventListeners = () => {
   })
 
   const removePhoto = () => {
-    const target = document.querySelector('#userPhoto');
-    // target.style.display = 'none'
-    // target.src = '';
+    const userPhoto = document.querySelector('#userPhoto');
+    // userPhoto.style.display = 'none'
+    // userPhoto.src = '';
   }
 
   const previewImageButton = document.querySelector('#previewImageButton');

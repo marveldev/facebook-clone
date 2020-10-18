@@ -1,15 +1,15 @@
-const request = indexedDB.open('facebook', 2);
+const request = indexedDB.open('facebook', 3);
 
 request.onsuccess = () => {
   const database = request.result;
-  const transaction = database.transaction(['post'], 'readwrite')
-  const store = transaction.objectStore('post');
-  store.add({post: 'a post', userPhoto: 'a picture'})
+  const transaction = database.transaction(['item'], 'readwrite')
+  const store = transaction.objectStore('item');
+  store.add({text: 'This is a sample Text', userPhoto: 'This is a sample image'})
 }
 
 request.onupgradeneeded = () => {
   const database = request.result;
-  database.createObjectStore('post', { autoIncrement: true});
+  database.createObjectStore('item', { autoIncrement: true });
 }
 
 request.onerror = () => {
@@ -19,24 +19,24 @@ request.onerror = () => {
 const addEntryToDb = (entry) => {
   const database = request.result;
   console.log(database);
-  const transaction = database.transaction(['post'], 'readwrite');
-  const store = transaction.objectStore('post')
+  const transaction = database.transaction(['item'], 'readwrite');
+  const store = transaction.objectStore('item')
   store.add(entry);
 
   transaction.oncomplete = () => {
-    alert (`entry added sucessfully to 'post'`)
+    alert (`entry added sucessfully to 'item'`)
   }
 
   transaction.onerror = () => {
-    console.log(`error adding to 'post'`)
+    console.log(`error adding to 'item'`)
   }
 }
 
 const getEntryFromDb = () => {
   const data = new Promise((resolve, reject) => {
     const database = request.result
-    const transaction = database.transaction(['post']);
-    const store = transaction.objectStore('post')
+    const transaction = database.transaction(['item']);
+    const store = transaction.objectStore('item')
     const getData = store.getAll();
   
     getData.onsuccess = () => {
@@ -44,7 +44,7 @@ const getEntryFromDb = () => {
     }
   
     getData.onerror = () => {
-      console.log(`error adding to 'post'`)
+      console.log(`error adding to 'item'`)
       reject(getData.error);
     }
   })
@@ -53,8 +53,8 @@ const getEntryFromDb = () => {
 
 const clearAllEntries = () => {
   const database = request.result;
-  const transaction = database.transaction(['post'], 'readwrite');
-  const store = transaction.objectStore('post');
+  const transaction = database.transaction(['item'], 'readwrite');
+  const store = transaction.objectStore('item');
   store.clear();
 }
 
