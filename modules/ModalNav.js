@@ -1,11 +1,30 @@
 const ModalNav = () => {
   return `
     <div id="dropdown-overlay"></div>
+    <div class="edit-profile-modal">
+      <h3>EDIT PROFILE</h3>
+      <div class="profile-entry">
+        <div>
+          <img src="./team1.jpg" id="photo" alt="photo">
+          <input type="file" id="profilePhoto">
+          <label for="profilePhoto">
+            <strong id="editPhoto">EDIT PHOTO</strong>
+          </label>
+        </div>
+        <input placeholder="Enter new name..."  id="profileInput" required/>
+      </div>
+      <button id="editPhotoButton">OK</button>
+    </div>
     <div id="dropdown-content">
-      <a href="#">
-        <img src="./team1.jpg" id="dropdown-photo" alt="my profile picture">
-        <strong>Marvelwonders</strong>
-      </a>  
+      <div class="profile-info">
+        <a href="#">
+          <img src="./team1.jpg" id="dropdown-photo" alt="my profile picture">
+        </a>  
+        <div>
+          <strong>Marvelwonders</strong>
+          <strong>Edit Profile Info</strong>
+        </div>
+      </div>
       <hr> 
       <a href="#"><i class="material-icons">&#xe87f;</i><strong>Feedback</strong></a>
       <a href="#"><i class="material-icons">settings</i><strong>Settings & Privacy</strong></a>

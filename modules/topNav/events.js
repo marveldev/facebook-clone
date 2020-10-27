@@ -3,6 +3,7 @@ const dropdown = () => {
   const closeTopNavDropdown = document.querySelector('#close-nav-dropdown');
   const dropdownOverlay = document.querySelector('#dropdown-overlay');
   const toggleBox = document.querySelector('#toggleBox');
+  const dropdownContent = document.querySelector('#dropdown-content');
 
   const toggleDropdown = (
     dropdownDisplay,
@@ -10,7 +11,7 @@ const dropdown = () => {
     openButtonDisplay,
     closeButtonDisplay
   ) => {
-    document.querySelector('#dropdown-content').style.display = dropdownDisplay;
+    dropdownContent.style.display = dropdownDisplay;
     dropdownOverlay.style.display = overlayDisplay;
     openTopNavDropdown.style.display = openButtonDisplay;
     closeTopNavDropdown.style.display = closeButtonDisplay;
@@ -26,6 +27,7 @@ const dropdown = () => {
 
   dropdownOverlay.addEventListener('click', () => {
     toggleDropdown('none', 'none', 'inline-block', 'none');
+    document.querySelector('.edit-profile-modal').style.display = 'none';
   })
   
   const themeSwitcher = document.querySelector('#themeSwitchContainer');
@@ -42,5 +44,14 @@ const dropdown = () => {
       toggleBox.checked = false
     }
   })
+
+  const profileInfo = document.querySelector('.profile-info');
+  
+  profileInfo.addEventListener('click', () => {
+    document.querySelector('.edit-profile-modal').style.display = 'block';
+    dropdownOverlay.style.display = 'block';
+    dropdownContent.style.display = 'none';
+  })
+
 }
 export default dropdown;
