@@ -4,10 +4,10 @@ import RightSideNav from './modules/sideNav/RightSideNav.js';
 import MainContent from './modules/mainContent/MainContent.js';
 import ModalNav from './modules/ModalNav.js';
 import toggleLeftNavModal from './modules/sideNav/events.js';
-import { dropdown, addBioPhotoEventListeners } from './modules/topNav/events.js';
+import { dropdown, addBioProfileEventListeners } from './modules/topNav/events.js';
 import { request } from './dataStorage.js';
-import { addPostEventListeners, addPhotoEventListeners } from './modules/mainContent/events.js';
-import addUserEntriesFromDb from './modules/mainContent/userEntry.js';
+import { userPostModal, postItemPhoto } from './modules/mainContent/events.js';
+import { getPostItemsFromDb, getBioProfileFromDb } from './modules/mainContent/userEntry.js';
 
 const app = () => {
   return `
@@ -25,11 +25,11 @@ request.onsuccess = () => {
   document.getElementById('root').innerHTML = app();
   toggleLeftNavModal();
   dropdown();
-
-  addBioPhotoEventListeners()
-  addPostEventListeners();
-  addPhotoEventListeners();
-  addUserEntriesFromDb();
+  userPostModal(); //opens and close the post modal
+  addBioProfileEventListeners() // adds bio profile
+  postItemPhoto(); // adds post item photo event
+  getPostItemsFromDb(); //gets post item from db
+  getBioProfileFromDb(); // get bio profile from db 
 }
 
 request.onerror = () => {
