@@ -4,10 +4,10 @@ import RightSideNav from './modules/sideNav/RightSideNav.js';
 import MainContent from './modules/mainContent/MainContent.js';
 import ModalNav from './modules/ModalNav.js';
 import toggleLeftNavModal from './modules/sideNav/events.js';
-import dropdown from './modules/topNav/events.js';
+import { dropdown, addBioPhotoEventListeners } from './modules/topNav/events.js';
 import { request } from './dataStorage.js';
 import { addPostEventListeners, addPhotoEventListeners } from './modules/mainContent/events.js';
-import addUserEntryFromDb from './modules/mainContent/userEntry.js';
+import addUserEntriesFromDb from './modules/mainContent/userEntry.js';
 
 const app = () => {
   return `
@@ -25,9 +25,11 @@ request.onsuccess = () => {
   document.getElementById('root').innerHTML = app();
   toggleLeftNavModal();
   dropdown();
+
+  addBioPhotoEventListeners()
   addPostEventListeners();
   addPhotoEventListeners();
-  addUserEntryFromDb();
+  addUserEntriesFromDb();
 }
 
 request.onerror = () => {
