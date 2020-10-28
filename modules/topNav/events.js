@@ -1,3 +1,5 @@
+import { addEntryToDb, clearAllEntries } from '../../dataStorage.js';
+
 const dropdown = () => {
   const openTopNavDropdown = document.querySelector('#open-nav-dropdown');
   const closeTopNavDropdown = document.querySelector('#close-nav-dropdown');
@@ -46,12 +48,50 @@ const dropdown = () => {
   })
 
   const profileInfo = document.querySelector('.profile-info');
-  
   profileInfo.addEventListener('click', () => {
     document.querySelector('.edit-profile-modal').style.display = 'block';
     dropdownOverlay.style.display = 'block';
     dropdownContent.style.display = 'none';
   })
-
 }
-export default dropdown;
+
+const addBioPhotoEventListeners = () => {
+  const profilePhoto = document.querySelector('#profilePhoto');
+  const bioPhoto = document.querySelector('#photo');
+  profilePhoto.addEventListener('change', () => {
+    const photoReader = new FileReader();
+    photoReader.readAsDataURL(profilePhoto.files[0])
+    photoReader.addEventListener('load', () => {
+      bioPhoto.src = photoReader.result;
+    })
+  })
+
+  const bioForm = document.querySelector('.bio-form');
+  
+  bioForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const bioName = document.querySelector('#profileInput').value;
+    const bioPhoto = document.querySelector('#photo');
+    const photoSource = bioPhoto.src
+
+    document.querySelector('.edit-profile-modal').style.display = 'none';
+    document.querySelector('#dropdown-overlay').style.display = 'none';
+    
+    const bioPhotos = document.querySelectorAll('.bio-photo')
+    for (let index = 0; index < bioPhotos.length; index++) {
+      const bioPhoto = bioPhotos[index];
+      bioPhoto.src = photoSource
+    }
+    
+    const userNames = document.querySelectorAll('.user-name')
+    for (let index = 0; index < userNames.length; index++) {
+      const userName = userNames[index];
+      userName.innerText = bioName;  
+    }
+
+    clearAllEntries('bio');
+    addEntryToDb('bio', { bioName, photoSource })
+  })
+}
+
+export { dropdown, addBioPhotoEventListeners };
