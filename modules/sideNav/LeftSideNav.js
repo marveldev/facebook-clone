@@ -2,8 +2,8 @@ const LeftSideNav = () => {
   return `
     <nav class="left-side-nav">
       <a href="#">
-        <img src="./team1.jpg" class="nav-image" alt="my profile picture">
-        <span>Marvelwonders</span>
+        <img src="./team1.jpg" class="nav-image bio-photo" alt="my profile picture">
+        <span class="user-name">Marvelwonders</span>
       </a>
       <a href="#"><i class='fas fa-user-friends'></i>Friends</a>
       <a href="#"><i class='fab fa-facebook-messenger'></i>Messenger</a>
