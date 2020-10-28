@@ -53,12 +53,15 @@ const addPostItemToDb = () => {
   let userEntryItem = `
     <div class="user-content">
       <div class="user-profile"> 
-        <a href="#">
-          <img src="${bioPhoto ? bioPhoto : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
-          class="profile-photo bio-photo" alt="my profile picture">
-        </a>
-        <strong class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
-        <p id="userPost">${userPost}</p>
+        <div class="post-entry">
+          <a href="#">
+            <img src="${bioPhoto ? bioPhoto : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
+            class="profile-photo bio-photo" alt="my profile picture">
+          </a>
+          <strong class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
+          <button class="delete-post">X</button>
+          <p id="userPost">${userPost}</p>
+        </div>
       </div>
       <a href="#">
         <img src=${imageSource} class="add-photo" alt="photo">
@@ -75,5 +78,16 @@ const addPostItemToDb = () => {
   addEntryToDb('post-item', {post: userPost, userPhoto: imageSource});
 }
 
+const deleteEntry = () => {
+  const deleteButtons = document.querySelectorAll('.delete-post')
+  console.log(deleteButtons);
+  for (let index = 0; index < deleteButtons.length; index++) {
+    const deleteButton = deleteButtons[index];
+    deleteButton.addEventListener('click', () => {
+      console.log('ok');
+    })
+  }
+}
 
-export { userPostModal, postItemPhoto }
+
+export { userPostModal, postItemPhoto, deleteEntry }

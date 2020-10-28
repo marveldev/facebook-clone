@@ -48,6 +48,7 @@
 
 .user-profile>p {
   margin-top: 0.5em;
+  font-size: 1.2em;
 }
 
 .chat-options {
@@ -264,8 +265,26 @@
 #previewEntry::-webkit-scrollbar-track {
   background: #fff;
 }
- 
+
 #previewEntry::-webkit-scrollbar-thumb {
   background: #BCC0C4; 
   border-radius: 0.5em;
+}
+
+.delete-post {
+  position: relative;
+  left: 16em;
+  width: 2em;
+  height: 2em;
+  border: unset;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.post-entry {
+  font-size: 1.2em;
+}
+
+.post-entry>p {
+  margin: 0.5em 0 0 0;
 }

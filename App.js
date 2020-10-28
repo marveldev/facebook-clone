@@ -6,7 +6,7 @@ import ModalNav from './modules/ModalNav.js';
 import toggleLeftNavModal from './modules/sideNav/events.js';
 import { dropdown, addBioProfileEventListeners } from './modules/topNav/events.js';
 import { request } from './dataStorage.js';
-import { userPostModal, postItemPhoto } from './modules/mainContent/events.js';
+import { userPostModal, postItemPhoto, deleteEntry } from './modules/mainContent/events.js';
 import { getPostItemsFromDb, getBioProfileFromDb } from './modules/mainContent/userEntry.js';
 
 const app = () => {
@@ -30,6 +30,7 @@ request.onsuccess = () => {
   postItemPhoto(); // adds post item photo event
   getPostItemsFromDb(); //gets post item from db
   getBioProfileFromDb(); // get bio profile from db 
+  deleteEntry(); // removes post item from db
 }
 
 request.onerror = () => {

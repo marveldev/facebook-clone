@@ -8,12 +8,15 @@ const getPostItemsFromDb = async () => {
     return `  
       <div class="user-content">
         <div class="user-profile"> 
-          <a href="#">
-            <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
-            class="profile-photo bio-photo" alt="my profile picture">
-          </a>
-          <strong class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
-          <p id="userPost">${singleEntry.post}</p>
+          <div class="post-entry">
+            <a href="#">
+              <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
+              class="profile-photo bio-photo" alt="my profile picture">
+            </a>
+            <strong class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
+            <button class="delete-post">X</button>
+            <p id="userPost">${singleEntry.post}</p>
+          </div>
         </div>
         <a href="#">
           <img src=${singleEntry.userPhoto} class="add-photo" alt="photo">
