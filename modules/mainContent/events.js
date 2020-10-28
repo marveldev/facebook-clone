@@ -6,7 +6,7 @@ const addEntries = () => {
   const userPhoto = document.querySelector('#userPhoto');
   const imageSource = userPhoto.src
 
-  const userEntryItems = `
+  let userEntryItems = `
     <div class="user-content">
       <div class="user-profile"> 
         <a href="#">
@@ -16,7 +16,7 @@ const addEntries = () => {
         <p id="userPost">${userPost}</p>
       </div>
       <a href="#">
-        <img src=${userPhoto.src} class="add-photo" alt="photo">
+        <img src=${imageSource} class="add-photo" alt="photo">
       </a>
       <div class="tweet-options">
         <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
@@ -25,8 +25,9 @@ const addEntries = () => {
       </div>
     </div>  
   `
-  output.innerHTML += userEntryItems;
-  addEntryToDb({post: userPost, userPhoto: imageSource});
+  userEntryItems += output.innerHTML
+  output.innerHTML = userEntryItems;
+  addEntryToDb('post-item', {post: userPost, userPhoto: imageSource});
 }
 
 const addPhotoEventListeners = () => {
@@ -55,12 +56,11 @@ const addPostEventListeners = () => {
 
   userPostModal.addEventListener('click', () => {
     toggleUserPostModal('block');
-    console.log('ok');
   })
     
   userPostButton.addEventListener('click', () => {
-    addEntries();
     toggleUserPostModal('none');
+    addEntries();
   })
 
   userPostOverlay.addEventListener('click', () => {
@@ -70,15 +70,6 @@ const addPostEventListeners = () => {
   closePostModalButton.addEventListener('click', () => {
     toggleUserPostModal('none');
   })
-
-  const removePhoto = () => {
-    const userPhoto = document.querySelector('#userPhoto');
-    // userPhoto.style.display = 'none'
-    // userPhoto.src = '';
-  }
-
-  const previewImageButton = document.querySelector('#previewImageButton');
-  previewImageButton.addEventListener('click', removePhoto);
 }
 
 export { addPostEventListeners, addPhotoEventListeners }
