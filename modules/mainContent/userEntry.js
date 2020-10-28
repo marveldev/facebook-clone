@@ -1,16 +1,17 @@
 import { getEntryFromDb } from '../../dataStorage.js';
 
-const addUserEntriesFromDb = async () => {
+const getPostItemsFromDb = async () => {
   const output = document.querySelector('.output');
+  const bioEntry = await getEntryFromDb('bio');
   const userEntry = await getEntryFromDb('post-item');
   const userEntryItems = userEntry.reverse().map((singleEntry) => {
     return `  
       <div class="user-content">
         <div class="user-profile"> 
           <a href="#">
-            <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
+            <img src="${bioEntry[0].photoSource}" class="profile-photo bio-photo" alt="my profile picture">
           </a>
-          <strong>Jane Doe</strong>
+          <strong class="user-name">${bioEntry[0].bioName}</strong>
           <p id="userPost">${singleEntry.post}</p>
         </div>
         <a href="#">
@@ -25,23 +26,20 @@ const addUserEntriesFromDb = async () => {
     `
   })
   output.innerHTML = userEntryItems.join('');
-
-  const bioEntry = await getEntryFromDb('bio');
-  // const bioEntryItem = bioEntry
-  console.log(bioEntry[0].bioName);
-  
-  // const bioPhotos = document.querySelectorAll('.bio-photo')
-  //   for (let index = 0; index < bioPhotos.length; index++) {
-  //     const bioPhoto = bioPhotos[index];
-  //     bioPhoto.src = photoSource
-  //   }
-    
-    const userNames = document.querySelectorAll('.user-name')
-    for (let index = 0; index < userNames.length; index++) {
-      const userName = userNames[index];
-      userName.innerText = bioEntry[0].bioName;  
-    }
-
-  return userNames 
 }
-export default addUserEntriesFromDb;
+
+const getBioProfileFromDb = async () => {
+  const bioEntry = await getEntryFromDb('bio');
+  const bioPhotos = document.querySelectorAll('.bio-photo')
+  for (let index = 0; index < bioPhotos.length; index++) {
+    const bioPhoto = bioPhotos[index];
+    bioPhoto.src = bioEntry[0].photoSource;
+  }
+  
+  const userNames = document.querySelectorAll('.user-name')
+  for (let index = 0; index < userNames.length; index++) {
+    const userName = userNames[index];
+    userName.innerText = bioEntry[0].bioName;  
+  }
+}
+export { getPostItemsFromDb, getBioProfileFromDb };
