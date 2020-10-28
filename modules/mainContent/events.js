@@ -45,6 +45,8 @@ const userPostModal = () => {
 const addPostItemToDb = () => {
   const output = document.querySelector('.output');
   const userPost = document.querySelector('#userPostInput').value;
+  const userName = document.querySelector('#displayName')
+  const bioPhoto = document.querySelector('#displayPicture').src
   const userPhoto = document.querySelector('#userPhoto');
   const imageSource = userPhoto.src
 
@@ -52,9 +54,10 @@ const addPostItemToDb = () => {
     <div class="user-content">
       <div class="user-profile"> 
         <a href="#">
-          <img src="./team1.jpg" class="profile-photo bio-photo" alt="my profile picture">
+          <img src="${bioPhoto ? bioPhoto : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
+          class="profile-photo bio-photo" alt="my profile picture">
         </a>
-        <strong class="user-name">Jane Doe</strong>
+        <strong class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
         <p id="userPost">${userPost}</p>
       </div>
       <a href="#">

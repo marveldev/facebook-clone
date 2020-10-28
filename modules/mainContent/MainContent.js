@@ -4,7 +4,8 @@ const MainContent = () => {
       <div class="user-options">
         <div class="user-profile"> 
           <a href="#">
-            <img src="./team1.jpg" class="profile-photo bio-photo" alt="my profile picture">
+            <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            class="profile-photo bio-photo" alt="my profile picture">
           </a>
           <textarea id="user-post" placeholder="What's on your mind?"></textarea>
         </div>

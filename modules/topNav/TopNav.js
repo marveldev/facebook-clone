@@ -14,8 +14,9 @@ const TopNav = () => {
       </span>
       <span class="secondary-nav-links">
         <a href="#" class="image-link">
-          <img src="./team1.jpg" class="nav-image bio-photo" alt="my profile picture">
-          <strong class="user-name">Marvelwonders</strong>
+          <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          class="nav-image bio-photo" alt="my profile picture">
+          <strong class="user-name">Jane Doe</strong>
         </a>
         <span>
           <a href="#" class="icon-link"><i class='fas fa-plus'></i></a>
