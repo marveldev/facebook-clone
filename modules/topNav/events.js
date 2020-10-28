@@ -55,7 +55,7 @@ const dropdown = () => {
   })
 }
 
-const addBioPhotoEventListeners = () => {
+const addBioProfileEventListeners = () => {
   const profilePhoto = document.querySelector('#profilePhoto');
   const bioPhoto = document.querySelector('#photo');
   profilePhoto.addEventListener('change', () => {
@@ -94,4 +94,4 @@ const addBioPhotoEventListeners = () => {
   })
 }
 
-export { dropdown, addBioPhotoEventListeners };
+export { dropdown, addBioProfileEventListeners };
