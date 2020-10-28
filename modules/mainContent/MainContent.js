@@ -4,9 +4,9 @@ const MainContent = () => {
       <div class="user-options">
         <div class="user-profile"> 
           <a href="#">
-            <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
+            <img src="./team1.jpg" class="profile-photo bio-photo" alt="my profile picture">
           </a>
-          <textarea id="user-post" placeholder="What's on your mind, Marvelwonders?"></textarea>
+          <textarea id="user-post" placeholder="What's on your mind?"></textarea>
         </div>
         <div class="chat-options">
           <a href="#"><i class="material-icons">&#xe413;</i>Photo/Video</a>
