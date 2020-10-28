@@ -1,9 +1,9 @@
 import { getEntryFromDb } from '../../dataStorage.js';
 
-const addUserEntryFromDb = async () => {
+const addUserEntriesFromDb = async () => {
   const output = document.querySelector('.output');
-  const userEntry = await getEntryFromDb();
-  const userEntryItems = userEntry.map((singleEntry) => {
+  const userEntry = await getEntryFromDb('post-item');
+  const userEntryItems = userEntry.reverse().map((singleEntry) => {
     return `  
       <div class="user-content">
         <div class="user-profile"> 
@@ -24,6 +24,24 @@ const addUserEntryFromDb = async () => {
       </div>   
     `
   })
-  output.innerHTML += userEntryItems.join('');
+  output.innerHTML = userEntryItems.join('');
+
+  const bioEntry = await getEntryFromDb('bio');
+  // const bioEntryItem = bioEntry
+  console.log(bioEntry[0].bioName);
+  
+  // const bioPhotos = document.querySelectorAll('.bio-photo')
+  //   for (let index = 0; index < bioPhotos.length; index++) {
+  //     const bioPhoto = bioPhotos[index];
+  //     bioPhoto.src = photoSource
+  //   }
+    
+    const userNames = document.querySelectorAll('.user-name')
+    for (let index = 0; index < userNames.length; index++) {
+      const userName = userNames[index];
+      userName.innerText = bioEntry[0].bioName;  
+    }
+
+  return userNames 
 }
-export default addUserEntryFromDb;
+export default addUserEntriesFromDb;
