@@ -1,42 +1,42 @@
-const request = indexedDB.open('facebook', 3);
+const request = indexedDB.open('facebook', 2);
 
 request.onsuccess = () => {
   const database = request.result;
-  const transaction = database.transaction(['item'], 'readwrite')
-  const store = transaction.objectStore('item');
+  const transaction = database.transaction(['bio'], 'readwrite')
+  const store = transaction.objectStore('bio');
   store.add({text: 'This is a sample Text', userPhoto: 'This is a sample image'})
 }
 
 request.onupgradeneeded = () => {
   const database = request.result;
-  database.createObjectStore('item', { autoIncrement: true });
+  database.createObjectStore('bio', { autoIncrement: true });
+  database.createObjectStore('post-item', { autoIncrement: true });
 }
 
 request.onerror = () => {
   console.log('request unsuccessful');
 }
 
-const addEntryToDb = (entry) => {
+const addEntryToDb = (storeName, entry) => {
   const database = request.result;
-  console.log(database);
-  const transaction = database.transaction(['item'], 'readwrite');
-  const store = transaction.objectStore('item')
+  const transaction = database.transaction([storeName], 'readwrite');
+  const store = transaction.objectStore(storeName)
   store.add(entry);
 
   transaction.oncomplete = () => {
-    alert (`entry added sucessfully to 'item'`)
+    alert (`entry added sucessfully to ${storeName}`)
   }
 
   transaction.onerror = () => {
-    console.log(`error adding to 'item'`)
+    console.log(`error adding to ${storeName}`)
   }
 }
 
-const getEntryFromDb = () => {
+const getEntryFromDb = (storeName) => {
   const data = new Promise((resolve, reject) => {
     const database = request.result
-    const transaction = database.transaction(['item']);
-    const store = transaction.objectStore('item')
+    const transaction = database.transaction([storeName]);
+    const store = transaction.objectStore(storeName)
     const getData = store.getAll();
   
     getData.onsuccess = () => {
@@ -51,10 +51,10 @@ const getEntryFromDb = () => {
   return Promise.resolve(data);
 }
 
-const clearAllEntries = () => {
+const clearAllEntries = (storeName) => {
   const database = request.result;
-  const transaction = database.transaction(['item'], 'readwrite');
-  const store = transaction.objectStore('item');
+  const transaction = database.transaction([storeName], 'readwrite');
+  const store = transaction.objectStore(storeName);
   store.clear();
 }
 
