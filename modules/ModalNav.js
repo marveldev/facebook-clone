@@ -3,25 +3,27 @@ const ModalNav = () => {
     <div id="dropdown-overlay"></div>
     <div class="edit-profile-modal">
       <h3>EDIT PROFILE</h3>
-      <div class="profile-entry">
-        <div>
-          <img src="./team1.jpg" id="photo" alt="photo">
-          <input type="file" id="profilePhoto">
-          <label for="profilePhoto">
-            <strong id="editPhoto">EDIT PHOTO</strong>
-          </label>
+      <form class="bio-form">
+        <div class="profile-entry">
+          <div>
+            <img src="./team1.jpg" id="photo" alt="photo">
+            <input type="file" id="profilePhoto">
+            <label for="profilePhoto">
+              <strong id="editPhoto" tabindex="1">EDIT PHOTO</strong>
+            </label>
+          </div>
+          <input type="text" placeholder="Enter new name..."  id="profileInput" required/>
         </div>
-        <input placeholder="Enter new name..."  id="profileInput" required/>
-      </div>
-      <button id="editPhotoButton">OK</button>
+        <button type="submit" id="editPhotoButton">OK</button>
+      </form>
     </div>
     <div id="dropdown-content">
       <div class="profile-info">
         <a href="#">
-          <img src="./team1.jpg" id="dropdown-photo" alt="my profile picture">
+          <img src="./team1.jpg" id="dropdown-photo" class="bio-photo" alt="my profile picture">
         </a>  
         <div>
-          <strong>Marvelwonders</strong>
+          <strong class="user-name">Marvelwonders</strong>
           <strong>Edit Profile Info</strong>
         </div>
       </div>
@@ -47,12 +49,12 @@ const ModalNav = () => {
       </div>
       <div id="userInfo"> 
         <a href="#">
-          <img src="./team1.jpg" class="profile-photo" alt="my profile picture">
+          <img src="./team1.jpg" class="profile-photo bio-photo" alt="my profile picture">
         </a>
-        <strong>Jane Doe</strong>
+        <strong class="user-name">Jane Doe</strong>
       </div>
       <div id="previewEntry">
-        <textarea id="userPostInput" placeholder="What's on your mind, Marvelwonders?"></textarea>
+        <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
         <button id="previewImageButton">X</button>
         <img src="./team1.jpg" id="userPhoto" alt="photo">
       </div>
