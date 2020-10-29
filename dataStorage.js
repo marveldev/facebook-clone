@@ -1,4 +1,4 @@
-const request = indexedDB.open('facebook', 2);
+const request = indexedDB.open('facebook', 3);
 
 request.onsuccess = () => {
   const database = request.result;
@@ -10,7 +10,7 @@ request.onsuccess = () => {
 request.onupgradeneeded = () => {
   const database = request.result;
   database.createObjectStore('bio', { autoIncrement: true });
-  database.createObjectStore('post-item', { autoIncrement: true });
+  database.createObjectStore('post-item', { keyPath: 'postItemId' });
 }
 
 request.onerror = () => {
