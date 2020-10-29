@@ -38,17 +38,34 @@ const getEntryFromDb = (storeName) => {
     const transaction = database.transaction([storeName]);
     const store = transaction.objectStore(storeName)
     const getData = store.getAll();
-  
+
     getData.onsuccess = () => {
       resolve(getData.result)
     }
-  
+
     getData.onerror = () => {
       console.log(`error adding to 'item'`)
       reject(getData.error);
     }
   })
   return Promise.resolve(data);
+}
+
+const updateEntry = (storeName, itemId, newUserText) => {
+  const database = request.result;
+  const transaction = database.transaction([storeName], 'readwrite');
+  const store = transaction.objectStore(storeName);
+  const getData = store.get(itemId);
+
+  getData.onsuccess = () => {
+    const data = getData.result;
+    data.userPost = newUserText;
+    store.put(data);
+  }
+
+  getData.onerror = () => {
+    console.log('error accessing getdata');
+  }
 }
 
 const clearAllEntries = (storeName) => {
@@ -58,4 +75,11 @@ const clearAllEntries = (storeName) => {
   store.clear();
 }
 
-export { request, addEntryToDb, getEntryFromDb, clearAllEntries };
+const deleteEntry = (storeName, entryId) => {
+  const database = request.result;
+  const transaction = database.transaction([storeName], 'readwrite');
+  const store = transaction.objectStore(storeName);
+  store.delete(entryId)
+}
+
+export { request, addEntryToDb, getEntryFromDb, clearAllEntries, deleteEntry, updateEntry };
