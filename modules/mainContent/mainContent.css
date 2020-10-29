@@ -132,6 +132,15 @@
   height: 1.8em;
 }
 
+.close-edit-modal {
+  position: relative;
+  left: 7.5em;
+  border: unset;
+  border-radius: 50%;
+  width: 1.8em;
+  height: 1.8em;
+}
+
 #userInfo {
   margin: 1em 2em 0 2em;
 }
@@ -328,7 +337,8 @@
 
 .display-options-button:active,
 .edit-text-button:active,
-.delete-post-button:active {
+.delete-post-button:active,
+.close-edit-modal:active {
   transform: translateY(4px);
 }
 

@@ -38,7 +38,7 @@ const getPostItemsFromDb = async () => {
         <div class="edit-post-modal" id=${singleEntry.modalId}>
           <div class="edit-post">
             <strong>Edit Post</strong>
-            <button id="closePostButton">X</button>
+            <button class="close-edit-modal">X</button>
           </div>
           <div id="userInfo"> 
             <a href="#">
@@ -47,9 +47,7 @@ const getPostItemsFromDb = async () => {
             </a>
             <strong id="displayName" class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
           </div>
-          <div id="previewEntry">
-            <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
-          </div>
+          <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
           <button class="save-text-button" title=${singleEntry.modalId}>Save</button>
         </div>
       </section>   

@@ -88,7 +88,7 @@ const addPostItemToDb = () => {
       <div class="edit-post-modal" id=${modalId}>
         <div class="edit-post">
           <strong>Edit Post</strong>
-          <button id="closePostButton">X</button>
+          <button class="close-edit-modal">X</button>
         </div>
         <div id="userInfo"> 
           <a href="#">
@@ -97,9 +97,7 @@ const addPostItemToDb = () => {
           </a>
           <strong id="displayName" class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
         </div>
-        <div id="previewEntry">
-          <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
-        </div>
+        <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
         <button id="userPostButton" title=${modalId}>Save</button>
       </div>
     </section>
@@ -118,6 +116,8 @@ const addPostItemToDb = () => {
 }
 
 const displayPostOptions = () => {
+  const output = document.querySelector('.output');
+  const userPostOverlay = document.querySelector('#createPostOverlay');
   const displayOptionsButtons = document.querySelectorAll('.display-options-button');
   for (let index = 0; index < displayOptionsButtons.length; index++) {
     const displayOptionsButton = displayOptionsButtons[index];
@@ -126,19 +126,10 @@ const displayPostOptions = () => {
     })
   }
 
-  const deletePostButtons = document.querySelectorAll('.delete-post-button')
-  for (let index = 0; index < deletePostButtons.length; index++) {
-    const deletePostButton = deletePostButtons[index];
-    deletePostButton.addEventListener('click', () => {
-      console.log('ok');
-    })
-  }
-
   const editPostButtons = document.querySelectorAll('.edit-text-button')
   for (let index = 0; index < editPostButtons.length; index++) {
     const editPostButton = editPostButtons[index];
     editPostButton.addEventListener('click', () => {
-      const userPostOverlay = document.querySelector('#createPostOverlay');
       const editModalId = editPostButton.title;
       const editModal = document.querySelector(`#${editModalId}`);
       editModal.style.display = 'block';
@@ -146,11 +137,36 @@ const displayPostOptions = () => {
     })
   }
 
+  const closeEditButtons = document.querySelectorAll('.close-edit-modal')
+  for (let index = 0; index < closeEditButtons.length; index++) {
+    const closeEditButton = closeEditButtons[index];
+    closeEditButton.addEventListener('click', () => {
+      const editPostModal = closeEditButton.parentElement.parentElement;
+      editPostModal.style.display = 'none';
+      userPostOverlay.style.display = 'none';
+    })
+  }
+
   const savePostButtons = document.querySelectorAll('.save-text-button')
   for (let index = 0; index < savePostButtons.length; index++) {
     const savePostButton = savePostButtons[index];
     savePostButton.addEventListener('click', () => {
-      console.log('ok');
+      const newUserText = savePostButton.previousElementSibling.value;
+      const elementId = savePostButton.title;
+      const oldUserText = document.querySelector(`.${elementId}`);
+      oldUserText.innerHTML = newUserText;
+      savePostButton.parentElement.style.display = 'none';
+      userPostOverlay.style.display = 'none';
+    })
+  }
+
+  const deletePostButtons = document.querySelectorAll('.delete-post-button')
+  for (let index = 0; index < deletePostButtons.length; index++) {
+    const deletePostButton = deletePostButtons[index];
+    deletePostButton.addEventListener('click', () => {
+      const elementId = deletePostButton.title;
+      const postItem = document.querySelector(`#${elementId}`); 
+      output.removeChild(postItem);
     })
   }
 }
