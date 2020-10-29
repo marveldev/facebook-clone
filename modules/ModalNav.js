@@ -2,7 +2,7 @@ const ModalNav = () => {
   return `
     <div id="dropdown-overlay"></div>
     <div class="edit-profile-modal">
-      <h3>EDIT PROFILE</h3>
+      <h3>Edit Profile</h3>
       <form class="bio-form">
         <div class="profile-entry">
           <div>
