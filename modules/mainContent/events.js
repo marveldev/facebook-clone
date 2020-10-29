@@ -1,4 +1,4 @@
-import { addEntryToDb } from '../../dataStorage.js';
+import { addEntryToDb, deleteEntry, updateEntry } from '../../dataStorage.js';
 
 const postItemPhoto = () => {
   const photo = document.querySelector('#addPhoto');
@@ -157,6 +157,7 @@ const displayPostOptions = () => {
       oldUserText.innerHTML = newUserText;
       savePostButton.parentElement.style.display = 'none';
       userPostOverlay.style.display = 'none';
+      updateEntry('post-item', elementId, newUserText)
     })
   }
 
@@ -167,6 +168,7 @@ const displayPostOptions = () => {
       const elementId = deletePostButton.title;
       const postItem = document.querySelector(`#${elementId}`); 
       output.removeChild(postItem);
+      deleteEntry('post-item', elementId)
     })
   }
 }
