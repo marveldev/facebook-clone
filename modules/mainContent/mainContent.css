@@ -116,6 +116,13 @@
   font-size: 1.5em;
 }
 
+.edit-post {
+  border-bottom: 1px solid #E5E5E5;
+  text-align: center;
+  padding: 0.5em 0;
+  font-size: 1.5em;
+}
+
 #closePostButton {
   position: relative;
   left: 7.5em;
@@ -149,6 +156,18 @@
   border-radius: 0.5em;
   font-weight: 600;
   margin: 0 2em 1.3em 2em;
+}
+
+.save-text-button {
+  width: 90%;
+  background-color: #1877F2;
+  height: 2.5em;
+  border: unset;
+  color: #fff;
+  border-radius: 0.5em;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin: 0 0em 1.3em 1.5em;
 }
 
 #addPhoto {
@@ -255,7 +274,7 @@
   border-bottom: 1px solid #E4E6EB;
 }
 
-.user-profile>textarea {
+#postInput {
   width: 80%;
   height: 2.5em;
   font-size: 1.3em;
@@ -268,7 +287,7 @@
   cursor: pointer;
 }
 
-.user-post {
+#userText {
   margin-top: 0.5em;
   font-size: 1.2em;
   white-space: pre-wrap;
@@ -295,39 +314,40 @@
 
 .post-item-options {
   display: none;
-  text-align: center;
   width:12em;
-  height: 7em;
+  height: 8em;
   border-radius: 0.5em;
-  margin: 1em 0 0 10em;
+  margin: 1em 0 0 9em;
   background-color: #fff;
   box-shadow: 0 0 0.5em 0 #000;
-  color: #fff;
 }
 
 .post-item-options .show {
   display: block;
 }
 
-.display-options-button:active {
+.display-options-button:active,
+.edit-text-button:active,
+.delete-post-button:active {
   transform: translateY(4px);
 }
 
 .edit-text-button {
-  width: 9em;
+  width: 80%;
   border: unset;
   font-weight: 700;
-  height: 2em;
-  margin: 1em 0;
-  background-color: #1877F2;
+  height: 2.5em;
+  margin: 1em 0 0 1em;
+  border-radius: 0.5em;
 }
 
 .delete-post-button {
-  width: 9em;
+  width: 80%;
   border: unset;
   font-weight: 700;
-  height: 2em;
-  background-color: #1877F2;
+  height: 2.5em;
+  margin: 1em 0 0 1em;
+  border-radius: 0.5em;
 }
 
 .user-options {
@@ -340,4 +360,17 @@
   padding: 1em;
   height: auto;
   border-bottom: 1px solid #E4E6EB;
+}
+
+.edit-post-modal {
+  display: none;
+  position: fixed;
+  left: 28em;
+  top: 7em;
+  margin: auto;
+  width: 36.2em;
+  height: auto;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 0.5em;
 }
