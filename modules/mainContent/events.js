@@ -78,16 +78,26 @@ const addPostItemToDb = () => {
   addEntryToDb('post-item', {post: userPost, userPhoto: imageSource});
 }
 
-const deleteEntry = () => {
-  const deleteButtons = document.querySelectorAll('.delete-post')
-  console.log(deleteButtons);
-  for (let index = 0; index < deleteButtons.length; index++) {
-    const deleteButton = deleteButtons[index];
-    deleteButton.addEventListener('click', () => {
-      console.log('ok');
+const displayPostOptions = () => {
+  const displayOptionsButtons = document.querySelectorAll('.display-options-button');
+  for (let index = 0; index < displayOptionsButtons.length; index++) {
+    const displayOptionsButton = displayOptionsButtons[index];
+    displayOptionsButton.addEventListener('click', () => {
+      displayOptionsButton.nextElementSibling.classList.toggle('show');
     })
   }
+
+  // const deleteEntry = () => {
+  //   const deleteButtons = document.querySelectorAll('.delete-post')
+  //   for (let index = 0; index < deleteButtons.length; index++) {
+  //     const deleteButton = deleteButtons[index];
+  //     deleteButton.addEventListener('click', () => {
+  //       console.log('ok');
+  //     })
+  //   }
+  // }
 }
 
 
-export { userPostModal, postItemPhoto, deleteEntry }
+
+export { userPostModal, postItemPhoto, displayPostOptions }

@@ -19,25 +19,6 @@
   border-radius: 0.5em;
 }
 
-.user-profile {
-  padding: 1em;
-  height: auto;
-  border-bottom: 1px solid #E4E6EB;
-}
-
-.user-profile>textarea {
-  width: 80%;
-  height: 2.5em;
-  font-size: 1.3em;
-  vertical-align: middle;
-  padding: 0.58em 1em;
-  border-radius: 2em;
-  border: none;
-  background-color:#F0F2F5;
-  resize: none;
-  cursor: pointer;
-}
-
 .profile-photo {
   height: 3em;
   width: 3em;
@@ -46,17 +27,12 @@
   margin-right: 0.8em;
 }
 
-.user-profile>p {
-  margin-top: 0.5em;
-  font-size: 1.2em;
-}
-
 .chat-options {
   margin-top: 1em;
 }
 
 .chat-options a {
-  padding: 0.8em 1em 0.8em 1em;
+  padding: 0.5em 1em;
   margin-left: 1em;
   border-radius: 0.5em;
   color: #000;
@@ -79,13 +55,6 @@
   vertical-align: baseline;
 }
 
-.user-content {
-  margin: 1em 0;
-  height: auto;
-  background-color: #fff;
-  border-radius: 0.5em;
-}
-
 .add-photo {
   width: 100%;
   height: 35em;
@@ -103,7 +72,8 @@
 }
 
 .tweet-options {
- height: 3em;
+  height: 3em;
+  margin-left: 2em;
 }
 
 .tweet-options a i {
@@ -271,20 +241,103 @@
   border-radius: 0.5em;
 }
 
-.delete-post {
+.post-container {
+  margin: 1.5em 0;
+  padding: 1em 0 0 0;
+  height: auto;
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+.post-content {
+  padding: 1em 1.5em;
+  height: 8em;
+  border-bottom: 1px solid #E4E6EB;
+}
+
+.user-profile>textarea {
+  width: 80%;
+  height: 2.5em;
+  font-size: 1.3em;
+  vertical-align: middle;
+  padding: 0.58em 1em;
+  border-radius: 2em;
+  border: none;
+  background-color:#F0F2F5;
+  resize: none;
+  cursor: pointer;
+}
+
+.user-post {
+  margin-top: 0.5em;
+  font-size: 1.2em;
+  white-space: pre-wrap;
+  margin: 0.5em 0 0 0;
+}
+
+.edit-post-buttons {
   position: relative;
-  left: 16em;
-  width: 2em;
-  height: 2em;
+  bottom: 5em;
+  left: 12em;
+}
+
+.display-options-button {
+  margin: 0 0 0 15em;
+  padding: 0 0.8em 0.5em 0.8em;
+  border: unset;
+  border-radius: 50%;
+  font-weight: 700;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+.post-item-options {
+  display: none;
+  text-align: center;
+  width:12em;
+  height: 7em;
+  border-radius: 0.5em;
+  margin: 1em 0 0 10em;
+  background-color: #fff;
+  box-shadow: 0 0 0.5em 0 #000;
+  color: #fff;
+}
+
+.post-item-options .show {
+  display: block;
+}
+
+.display-options-button:active {
+  transform: translateY(4px);
+}
+
+.edit-text-button {
+  width: 9em;
   border: unset;
   font-weight: 700;
-  border-radius: 50%;
+  height: 2em;
+  margin: 1em 0;
+  background-color: #1877F2;
 }
 
-.post-entry {
-  font-size: 1.2em;
+.delete-post-button {
+  width: 9em;
+  border: unset;
+  font-weight: 700;
+  height: 2em;
+  background-color: #1877F2;
 }
 
-.post-entry>p {
-  margin: 0.5em 0 0 0;
+.user-options {
+  height: 9em;
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+.user-profile {
+  padding: 1em;
+  height: auto;
+  border-bottom: 1px solid #E4E6EB;
 }
