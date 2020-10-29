@@ -278,9 +278,8 @@
 }
 
 .post-content {
-  padding: 1em 1.5em;
-  height: 8em;
-  border-bottom: 1px solid #E4E6EB;
+  padding: 0.5em 1.5em;
+  height: 4em;
 }
 
 #postInput {
@@ -297,15 +296,15 @@
 }
 
 #userText {
-  margin-top: 0.5em;
+  height: auto;
+  width: 90%;
+  margin-left: 1.2em;
   font-size: 1.2em;
-  white-space: pre-wrap;
-  margin: 0.5em 0 0 0;
 }
 
 .edit-post-buttons {
   position: relative;
-  bottom: 5em;
+  bottom: 3em;
   left: 12em;
 }
 
