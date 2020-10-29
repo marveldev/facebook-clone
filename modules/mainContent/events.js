@@ -14,7 +14,7 @@ const postItemPhoto = () => {
 }
 
 const userPostModal = () => {
-  const userPostModal = document.querySelector('#user-post');
+  const userPostModal = document.querySelector('#postInput');
   const userPostOverlay = document.querySelector('#createPostOverlay');
   const closePostModalButton = document.querySelector('#closePostButton');
   const userPostButton = document.querySelector('#userPostButton');
@@ -35,6 +35,11 @@ const userPostModal = () => {
 
   userPostOverlay.addEventListener('click', () => {
     toggleUserPostModal('none');
+    const editPostModals = document.querySelectorAll('.edit-post-modal')
+    for (let index = 0; index < editPostModals.length; index++) {
+      const editPostModal = editPostModals[index];
+      editPostModal.style.display = 'none'
+    }
   })
 
   closePostModalButton.addEventListener('click', () => {
@@ -44,38 +49,72 @@ const userPostModal = () => {
 
 const addPostItemToDb = () => {
   const output = document.querySelector('.output');
-  const userPost = document.querySelector('#userPostInput').value;
+  const userPost = document.querySelector('#userPostInput').value
   const userName = document.querySelector('#displayName')
   const bioPhoto = document.querySelector('#displayPicture').src
-  const userPhoto = document.querySelector('#userPhoto');
-  const imageSource = userPhoto.src
+  const userPhoto = document.querySelector('#userPhoto').src
+  const postItemId = 'id' + Math.random().toString(36).substring(7); //2
+  const modalId = 'id' + Math.random().toString(36).substring(7);  //1
 
   let userEntryItem = `
-    <div class="user-content">
-      <div class="user-profile"> 
+    <section class="post-container" id=${postItemId}>
+      <div class="post-content">
         <div class="post-entry">
           <a href="#">
             <img src="${bioPhoto ? bioPhoto : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
             class="profile-photo bio-photo" alt="my profile picture">
           </a>
           <strong class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
-          <button class="delete-post">X</button>
-          <p id="userPost">${userPost}</p>
+        </div>
+        <p id="userText" class=${modalId}>${userPost}</p>
+        <div class="edit-post-buttons">
+          <button class="display-options-button">...</button>
+          <div class="post-item-options">
+            <button class="edit-text-button" title=${modalId}>EDIT TEXT</button>
+            <button class="delete-post-button" title=${postItemId}>DELETE POST</button>
+          </div>
         </div>
       </div>
-      <a href="#">
-        <img src=${imageSource} class="add-photo" alt="photo">
-      </a>
-      <div class="tweet-options">
-        <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
-        <a href="#"><i class='far fa-comment-alt'></i>Comment</a>
-        <a href="#"><i class="fa fa-share"></i>Share</a>
+      <div class="photo-content">
+        <a href="#">
+          <img src=${userPhoto} class="add-photo" alt="photo">
+        </a>
+        <div class="tweet-options">
+          <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
+          <a href="#"><i class='far fa-comment-alt'></i>Comment</a>
+          <a href="#"><i class="fa fa-share"></i>Share</a>
+        </div>
       </div>
-    </div>  
+      <div class="edit-post-modal" id=${modalId}>
+        <div class="edit-post">
+          <strong>Edit Post</strong>
+          <button id="closePostButton">X</button>
+        </div>
+        <div id="userInfo"> 
+          <a href="#">
+            <img src="${bioPhoto ? bioPhoto : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
+            class="profile-photo bio-photo" alt="my profile picture">
+          </a>
+          <strong id="displayName" class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
+        </div>
+        <div id="previewEntry">
+          <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
+        </div>
+        <button id="userPostButton" title=${modalId}>Save</button>
+      </div>
+    </section>
   `
-  userEntryItem += output.innerHTML
+  userEntryItem += output.innerHTML;
   output.innerHTML = userEntryItem;
-  addEntryToDb('post-item', {post: userPost, userPhoto: imageSource});
+  displayPostOptions();
+
+  const addItemToIndexDb = {
+    postItemId: postItemId,
+    modalId: modalId,
+    userPost: userPost,
+    userPhoto: userPhoto
+  }
+  addEntryToDb('post-item', addItemToIndexDb);
 }
 
 const displayPostOptions = () => {
@@ -87,17 +126,33 @@ const displayPostOptions = () => {
     })
   }
 
-  // const deleteEntry = () => {
-  //   const deleteButtons = document.querySelectorAll('.delete-post')
-  //   for (let index = 0; index < deleteButtons.length; index++) {
-  //     const deleteButton = deleteButtons[index];
-  //     deleteButton.addEventListener('click', () => {
-  //       console.log('ok');
-  //     })
-  //   }
-  // }
+  const deletePostButtons = document.querySelectorAll('.delete-post-button')
+  for (let index = 0; index < deletePostButtons.length; index++) {
+    const deletePostButton = deletePostButtons[index];
+    deletePostButton.addEventListener('click', () => {
+      console.log('ok');
+    })
+  }
+
+  const editPostButtons = document.querySelectorAll('.edit-text-button')
+  for (let index = 0; index < editPostButtons.length; index++) {
+    const editPostButton = editPostButtons[index];
+    editPostButton.addEventListener('click', () => {
+      const userPostOverlay = document.querySelector('#createPostOverlay');
+      const editModalId = editPostButton.title;
+      const editModal = document.querySelector(`#${editModalId}`);
+      editModal.style.display = 'block';
+      userPostOverlay.style.display = 'block';
+    })
+  }
+
+  const savePostButtons = document.querySelectorAll('.save-text-button')
+  for (let index = 0; index < savePostButtons.length; index++) {
+    const savePostButton = savePostButtons[index];
+    savePostButton.addEventListener('click', () => {
+      console.log('ok');
+    })
+  }
 }
-
-
 
 export { userPostModal, postItemPhoto, displayPostOptions }
