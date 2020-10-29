@@ -142,7 +142,7 @@
 }
 
 .profile-info>div {
-   margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 .edit-profile-modal {
@@ -151,7 +151,7 @@
   position: fixed;
   top: 7em;
   left: 0;
-  right: 0;
+  right: 4em;
   width: 40em;
   height: 25em;
   z-index: 1;
