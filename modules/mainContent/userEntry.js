@@ -16,7 +16,6 @@ const getPostItemsFromDb = async () => {
             </a>
             <strong class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
           </div>
-          <p id="userText" class=${singleEntry.modalId}>${singleEntry.userPost}</p>
           <div class="edit-post-buttons">
             <button class="display-options-button">...</button>
             <div class="post-item-options">
@@ -25,6 +24,7 @@ const getPostItemsFromDb = async () => {
             </div>
           </div>
         </div>
+        <p id="userText" class=${singleEntry.postItemId}>${singleEntry.userPost}</p>
         <div class="photo-content">
           <a href="#">
             <img src=${singleEntry.userPhoto} class="add-photo" alt="photo">
@@ -48,7 +48,7 @@ const getPostItemsFromDb = async () => {
             <strong id="displayName" class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
           </div>
           <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
-          <button class="save-text-button" title=${singleEntry.modalId}>Save</button>
+          <button class="save-text-button" title=${singleEntry.postItemId}>Save</button>
         </div>
       </section>   
     `
