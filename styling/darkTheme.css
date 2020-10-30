@@ -1,5 +1,5 @@
 .dark-theme {
-  color: #fff;
+  color: #E4E6EB;
 }
 
 .dark-theme .left-side-nav a,
@@ -20,7 +20,7 @@
   border-bottom: 1px solid #3A3B3C;
 }
 
-.dark-theme .user-profile>input {
+.dark-theme #postInput {
   background-color:#3A3B3C;
 }
 
@@ -34,22 +34,9 @@
   background-color: #303031;
 }
 
-.dark-theme .user-content {
-  background-color: #242526;
-}
-
-.dark-theme .user-profile>textarea {
-  background-color: #3A3B3C;
-  color: #E4E6EB;
-}
-
-.dark-theme .user-profile>textarea::placeholder,
-.dark-theme .search-input input::placeholder {
-  color: #B0B3B8;
-}
-
 .dark-theme .top-nav {
   background-color: #242526;
+  border-bottom: 1px solid #393A3B;
 }
 
 .dark-theme .search-input i {
@@ -101,6 +88,18 @@
   color: #B1B4B7;
 }
 
+.dark-theme .profile-info:hover {
+  background-color: #303031;
+}
+
+.dark-theme .profile-info {
+  color: #E4E6EB;
+}
+
+.dark-theme #dropdown-content>hr {
+  border: 1px solid #3E4042;
+}
+
 .dark-theme .logo {
   color: #dee0e2;
 }
@@ -128,6 +127,7 @@
 
 .dark-theme .post-options {
   border: 1.5px solid #3A3B3C;
+  box-shadow: 0 0.1em 0.5em 0 #3A3B3C;
 }
 
 .dark-theme #previewImageButton {
@@ -140,4 +140,61 @@
 
 .dark-theme #previewEntry::-webkit-scrollbar-thumb {
   background: #666768; 
+}
+
+.dark-theme #userPostButton {
+  background-color: #505151;
+}
+
+.dark-theme #dropdown-overlay {
+  background-color: #0e0e0e9d; 
+}
+
+.dark-theme .post-container {
+  background-color: #242526;
+}
+
+.dark-theme .display-options-button {
+  background-color: #505151;
+}
+
+.dark-theme .post-item-options {
+  background-color: #242526;
+}
+
+.dark-theme .post-item-options button {
+  background-color: #505151;
+}
+
+.dark-theme .edit-post-modal {
+  background-color: #242526;
+}
+
+.dark-theme .edit-post {
+  border-bottom: 1px solid #3A3B3C;
+}
+
+.dark-theme .save-text-button {
+  background-color: #505151;
+}
+
+.dark-theme .close-edit-modal {
+  background-color: #505151;
+}
+
+.dark-theme .edit-profile-modal {
+  background-color: #242526;
+}
+
+.dark-theme #editPhotoButton {
+  background-color: #505151;
+}
+
+.dark-theme #editPhoto {
+  background-color: #787979;
+}
+
+.dark-theme #profileInput {
+  background-color: #3A3B3C;
+  color: #E4E6EB;
 }
