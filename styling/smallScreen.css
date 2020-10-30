@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {	
+/* @media screen and (max-width: 768px) {	
   .top-nav {
     height: 6em;
   }
@@ -73,84 +73,62 @@
     margin: 0 5em;
     bottom: 1.8em;
   }
-}
+} */
 
 @media screen and (max-width: 425px) {
-  .top-nav {
-    height: 5em;
-  }
-
-  .image-link {
-    display: none;
-  }
-
-  .logo {
-    font-size: 3em;
-    margin-left: 0.1em;
-  }
-
-  .search-input input {
-    width: 10em;
-    height: 4em;
-    padding-left: 0.8em;
-  }
-
-  .secondary-nav-links {
-    font-size: 1em;
-    margin-left: 0.5em;
-  }
-
   .left-side-nav {
     display: none;
   }
 
-  #open-right-nav-modal,
-  #close-right-nav-modal {
-    padding: 1em 0.8em;
+  .right-side-nav {
+    display: none;
   }
-  
+
   .primary-nav-links {
     display: none;
   }
 
+  .top-nav {
+    height: 5em;
+  }
+
   .grid-container {
+    grid-template-columns: 1fr;
+    width: 100%;
     left: 0;
-    top: 5.5em;
+    top: 6em;
   }
 
   .main-content {
     width: 100%;
   }
 
-  .chat-options {
-    height: 3em;
+  .logo {
+    margin-left: 0.1em;
   }
+
+  .search-input input {
+    width: 10em;
+    height: 3em;
+    padding-left: 0.8em;
+  }
+
+  .secondary-nav-links {
+    margin-left: 0.5em;
+  }
+
+  .image-link {
+    display: none;
+  } 
 
   .chat-options a {
     padding: 0.8em 0.5em;
     margin-left: 0.5em;
   }
 
-  .user-profile>textarea {
-    font-size: 1.1em;
-  }
-
-  .user-content p,
-  .user-content strong {
-    font-size: 1.3em;
-  }
-
   #dropdown-content {
     margin-top: 0.5em;
   } 
-
-  .tweet-options>a {
-    font-size: 1.2em;
-  }
-
-  #dropdown-content a:not(:first-child) {
-    font-size: 1em;
-  }
 
   #dropdown-content>a:nth-child(6) {
     padding: 1.2em 1em 0;
@@ -160,34 +138,59 @@
   .switch {
     margin: 0 8em;
     bottom: 1.8em;
+  } 
+
+  .search-input>i {
+    display: none;
   }
 
-  .dark-theme .main-content {
-    background-color: #18191A;
+  .tweet-options a {
+    margin: 0;
+  }
+  
+  .tweet-options {
+    margin-left: 1em;
+  }
+
+  .edit-profile-modal {
+    width: 30.5em;
+    height: 22em;
+  }
+
+  .edit-profile-modal>h3{
+    margin: 0.5em;
+  }
+
+  .profile-entry {
+    font-size: 0.8em;
+  }
+
+  .create-post-modal {
+    left: 0;
+    font-size: 0.85em;
+    top: 7em;
   }
 }
 
 @media screen and (max-width: 375px) {
   .search-input input {
     width: 7em;
-    height: 3em;
   }
 
   .tweet-options>a {
-    font-size: 1.1em;
+    font-size: 1.15em;
   }
 
   .chat-options a {
-    padding: 0.8em 0.2em;
-    margin-left: 0;
+    padding: 0.2em 0em;
   }
 
   #dropdown-content {
     left: 2em;
   }
 
-  .switch {
-    margin: 0 8em;
-    bottom: 2em;
+  .create-post-modal {
+    font-size: 0.78em;
+    top: 9em;
   }
 }

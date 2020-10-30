@@ -6,9 +6,9 @@ const ModalNav = () => {
       <form class="bio-form">
         <div class="profile-entry">
           <div>
-          <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          id="photo" alt="photo">
-          <input type="file" id="profilePhoto">
+            <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            id="photo" alt="photo">
+            <input type="file" id="profilePhoto">
             <label for="profilePhoto">
               <strong id="editPhoto" tabindex="1">EDIT PHOTO</strong>
             </label>
