@@ -27,6 +27,10 @@ const TopNav = () => {
         </span>
       </span>
     </nav>
+    <div id="message">
+      <strong>ENTRY ADDED SUCCESSFULLY</strong>
+      <button class="message-btn button">OK</button>
+    </div>
   `
 }
 export default TopNav;
