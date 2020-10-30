@@ -1,85 +1,4 @@
-/* @media screen and (max-width: 768px) {	
-  .top-nav {
-    height: 6em;
-  }
-
-  .logo {
-    font-size: 4em;
-    margin-left: 0.1em;
-  }
-
-  .fa-search {
-    display: none;
-  }
-
-  .search-input input {
-    width: 10em;
-    height: 4em;
-    padding-left: 0.8em;
-  }
-
-  .primary-nav-links {
-    margin-left: 0.5em;
-  }
-
-  .primary-nav-links>a {
-    padding: 0.5em 0.7em;
-    margin: 0.2em;
-  }
-
-  .image-link {
-    display: none;
-  }
-
-  .secondary-nav-links {
-    font-size: 1.2em;
-    margin-left: 1em;
-  }
-
-  .left-side-nav {
-    display: none;
-  }
-
-  .grid-container {
-    left: 0;
-    top: 7.5em;
-    grid-template-columns: 2fr;
-    width: 100%;
-  }
-
-  .right-side-nav {
-    display: none;
-  }
-
-  #dropdown-content {
-    margin-top: 1.8em;
-  } 
-
-  #dropdown-content a:not(:first-child) {
-    font-size: 1.2em;
-  }
-
-  .tweet-options>a {
-    font-size: 1.5em;
-    margin: 0;
-  }
-  
-  #dropdown-content>a:nth-child(6) {
-    padding: 1.2em 1em 0;
-    height: 3.5em; 
-  }
-
-  .switch {
-    margin: 0 5em;
-    bottom: 1.8em;
-  }
-} */
-
 @media screen and (max-width: 425px) {
-  body {
-    width: 100%;
-  }
-
   .left-side-nav {
     display: none;
   }
@@ -98,6 +17,7 @@
 
   .top-nav {
     height: 5em;
+    font-size: 1em;
   }
 
   .grid-container {
@@ -226,5 +146,63 @@
 
   .edit-post-buttons {
     left: 3em;
+  }
+}
+
+@media screen and (max-width: 355px) and (min-width: 320px) { 
+  .search-input input {
+    width: 5em;
+  }
+
+  .secondary-nav-links a {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+  }
+
+  #open-nav-dropdown,
+  #close-nav-dropdown {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+  }
+
+  .tweet-options>a {
+    padding: 0.5em 0.8em;
+  }
+
+  .chat-options a {
+    padding: 0.5em;
+    margin: 1em;
+  }
+
+  .chat-options a:last-child {
+    display: none;
+  }
+
+  #dropdown-content {
+    left: 0;
+  }
+
+  .switch {
+    left: 7em;
+  }
+
+  .create-post-modal {
+    font-size: 0.65em;
+    top: 10em;
+  }
+
+  .edit-post-buttons {
+    left: 0em;
+  }
+
+  .edit-post-modal {
+    left: 0em;
+    top: 10em;
+    font-size: 0.75em;
+  }
+
+  .edit-profile-modal {
+    font-size: 0.75em;
+    top: 10em;
   }
 }
