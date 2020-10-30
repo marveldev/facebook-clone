@@ -66,7 +66,6 @@ const addPostItemToDb = () => {
           </a>
           <strong class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
         </div>
-        <p id="userText" class=${modalId}>${userPost}</p>
         <div class="edit-post-buttons">
           <button class="display-options-button">...</button>
           <div class="post-item-options">
@@ -75,6 +74,7 @@ const addPostItemToDb = () => {
           </div>
         </div>
       </div>
+      <p id="userText" class=${modalId}>${userPost}</p>
       <div class="photo-content">
         <a href="#">
           <img src=${userPhoto} class="add-photo" alt="photo">
