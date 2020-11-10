@@ -1,5 +1,5 @@
 import { getEntryFromDb } from '../../dataStorage.js';
-import { displayPostOptions } from './events.js';
+import { displayPostOptions, editPostText, deleteItemText } from './events.js';
 
 const getPostItemsFromDb = async () => {
   const output = document.querySelector('.output');
@@ -11,7 +11,7 @@ const getPostItemsFromDb = async () => {
         <div class="post-content"> 
           <div class="post-entry">
             <a href="#">
-              <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
+              <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
               class="profile-photo bio-photo" alt="my profile picture">
             </a>
             <strong class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
@@ -24,7 +24,7 @@ const getPostItemsFromDb = async () => {
             </div>
           </div>
         </div>
-        <p id="userText" class=${singleEntry.postItemId}>${singleEntry.userPost}</p>
+        <p id="userText" class=${singleEntry.modalId}>${singleEntry.userPost}</p>
         <div class="photo-content">
           <a href="#">
             <img src=${singleEntry.userPhoto} class="add-photo" alt="photo">
@@ -42,30 +42,38 @@ const getPostItemsFromDb = async () => {
           </div>
           <div id="userInfo"> 
             <a href="#">
-              <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}"
-              class="profile-photo bio-photo" alt="my profile picture">
+            <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
+            class="profile-photo bio-photo" alt="my profile picture">
             </a>
             <strong id="displayName" class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
           </div>
           <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
           <button class="save-text-button" title=${singleEntry.postItemId}>Save</button>
         </div>
-      </section>   
+        <div class="delete-modal ${singleEntry.postItemId}">
+          <h3>Delete Tweet?</h3>
+          <p>This can't be undone and it will be removed from your post.</p>
+          <button class="cancel-button">Cancel</button>
+          <button class="confirm-button" title=${singleEntry.postItemId}>Delete</button>
+        </div>
+      </section>
     `
   })
   output.innerHTML = userEntryItems.join('');
   displayPostOptions();
+  editPostText();
+  deleteItemText();
 }
 
 const getBioProfileFromDb = async () => {
   const bioEntry = await getEntryFromDb('bio');
   const modalBioPhoto = document.querySelector('#photo')
-  modalBioPhoto.src = bioEntry[0] ? bioEntry[0].photoSource : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+  modalBioPhoto.src = bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'
 
   const bioPhotos = document.querySelectorAll('.bio-photo')
   for (let index = 0; index < bioPhotos.length; index++) {
     const bioPhoto = bioPhotos[index];
-    bioPhoto.src = bioEntry[0] ? bioEntry[0].photoSource : 'https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    bioPhoto.src = bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'
   }
   
   const userNames = document.querySelectorAll('.user-name')
