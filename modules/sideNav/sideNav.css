@@ -122,6 +122,7 @@
   width: 4em;
   border-radius: 50%;
   object-fit: cover;
+  background: #000;
 }
 
 .profile-info {
@@ -184,6 +185,7 @@
   width: 15em;
   height: 15em;
   object-fit: cover;
+  background: #000;
 }
 
 #editPhoto {

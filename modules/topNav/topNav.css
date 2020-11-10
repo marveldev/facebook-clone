@@ -26,6 +26,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin-right: 0.5em;
+  background: #000000;
 }
 
 .logo {
