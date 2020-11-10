@@ -25,7 +25,7 @@ const ModalNav = () => {
           id="dropdown-photo" class="bio-photo" alt="my profile picture">
         </a>  
         <div>
-          <strong class="user-name"> Jane Doe</strong>
+          <strong class="user-name">Jane Doe</strong>
           <strong>Edit Profile Info</strong>
         </div>
       </div>
