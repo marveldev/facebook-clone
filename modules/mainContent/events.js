@@ -1,27 +1,14 @@
 import { addEntryToDb, deleteEntry, updateEntry } from '../../dataStorage.js';
 
-const postItemPhoto = () => {
-  const photo = document.querySelector('#addPhoto');
-  const userPhoto = document.querySelector('#userPhoto');
-  
-  photo.addEventListener('change', () => {
-    const photoReader = new FileReader();
-    photoReader.readAsDataURL(photo.files[0])
-    photoReader.addEventListener('load', () => {
-      userPhoto.src = photoReader.result;
-    })
-  })
-}
-
 const userPostModal = () => {
   const userPostModal = document.querySelector('#postInput');
-  const userPostOverlay = document.querySelector('#createPostOverlay');
+  const overlay = document.querySelector('#overlay');
   const closePostModalButton = document.querySelector('#closePostButton');
   const userPostButton = document.querySelector('#userPostButton');
 
   const toggleUserPostModal = (value) => {
     document.querySelector('.create-post-modal').style.display = value;
-    userPostOverlay.style.display = value;
+    overlay.style.display = value;
   }
 
   userPostModal.addEventListener('click', () => {
@@ -33,17 +20,36 @@ const userPostModal = () => {
     addPostItemToDb();
   })
 
-  userPostOverlay.addEventListener('click', () => {
+  overlay.addEventListener('click', () => {
     toggleUserPostModal('none');
     const editPostModals = document.querySelectorAll('.edit-post-modal')
     for (let index = 0; index < editPostModals.length; index++) {
       const editPostModal = editPostModals[index];
       editPostModal.style.display = 'none'
     }
+
+    const deletePostModals = document.querySelectorAll('.delete-modal')
+    for (let index = 0; index < deletePostModals.length; index++) {
+      const deletePostModal = deletePostModals[index];
+      deletePostModal.style.display = 'none'
+    }
   })
 
   closePostModalButton.addEventListener('click', () => {
     toggleUserPostModal('none');
+  })
+}
+
+const postItemPhoto = () => {
+  const photo = document.querySelector('#addPhoto');
+  const userPhoto = document.querySelector('#userPhoto');
+  
+  photo.addEventListener('change', () => {
+    const photoReader = new FileReader();
+    photoReader.readAsDataURL(photo.files[0])
+    photoReader.addEventListener('load', () => {
+      userPhoto.src = photoReader.result;
+    })
   })
 }
 
@@ -74,10 +80,10 @@ const addPostItemToDb = () => {
           </div>
         </div>
       </div>
-      <p id="userText" class=${modalId}>${userPost}</p>
+      <p id="userText" class="${modalId}">${userPost}</p>
       <div class="photo-content">
         <a href="#">
-          <img src=${userPhoto} class="add-photo" alt="photo">
+          <img src="${userPhoto}" class="add-photo" alt="photo">
         </a>
         <div class="tweet-options">
           <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
@@ -108,8 +114,12 @@ const addPostItemToDb = () => {
       </div>
     </section>
   `
+  const postInfo = document.querySelector('.post-info');
+  postInfo ? postInfo.style.display = 'none' : '';
+
   userEntryItem += output.innerHTML;
   output.innerHTML = userEntryItem;
+  
   displayPostOptions();
   editPostText();
   deleteItemText();
@@ -135,14 +145,14 @@ const displayPostOptions = () => {
 
 const editPostText = () => {
   const editPostButtons = document.querySelectorAll('.edit-text-button')
-  const userPostOverlay = document.querySelector('#createPostOverlay');
+  const overlay = document.querySelector('#overlay');
   for (let index = 0; index < editPostButtons.length; index++) {
     const editPostButton = editPostButtons[index];
     editPostButton.addEventListener('click', () => {
       const editModalId = editPostButton.title;
       const editModal = document.querySelector(`#${editModalId}`);
       editModal.style.display = 'block';
-      userPostOverlay.style.display = 'block';
+      overlay.style.display = 'block';
     })
   }
 
@@ -153,10 +163,12 @@ const editPostText = () => {
       const newUserText = savePostButton.previousElementSibling.value;
       const elementId = savePostButton.title;
       const oldUserText = document.querySelector(`.${elementId}`);
+      console.log(oldUserText);
       oldUserText.innerHTML = newUserText;
       savePostButton.parentElement.style.display = 'none';
-      userPostOverlay.style.display = 'none';
-      updateEntry('post-item', elementId, newUserText)
+      overlay.style.display = 'none';
+      const postId = savePostButton.parentElement.parentElement.id;
+      updateEntry('post-item', postId, newUserText)
     })
   }
 
@@ -166,15 +178,14 @@ const editPostText = () => {
     closeEditButton.addEventListener('click', () => {
       const editPostModal = closeEditButton.parentElement.parentElement;
       editPostModal.style.display = 'none';
-      userPostOverlay.style.display = 'none';
+      overlay.style.display = 'none';
     })
   }
 }
 
-
 const deleteItemText = () => {
   const deleteButtons = document.querySelectorAll('.delete-post-button');
-  const userPostOverlay = document.querySelector('#createPostOverlay');
+  const overlay = document.querySelector('#overlay');
   const output = document.querySelector('.output');
 
   for (let index = 0; index < deleteButtons.length; index++) {
@@ -182,9 +193,8 @@ const deleteItemText = () => {
     deleteButton.addEventListener('click', () => {
       const element = deleteButton.title;
       const deleteModal = document.querySelector(`.${element}`);
-      console.log(deleteModal);
       deleteModal.style.display = 'block';
-      userPostOverlay.style.display = 'block';
+      overlay.style.display = 'block';
     })
   }
 
@@ -194,7 +204,7 @@ const deleteItemText = () => {
     cancelButton.addEventListener('click', () => {
       const deleteModal = cancelButton.parentElement;
       deleteModal.style.display = 'none';
-      userPostOverlay.style.display = 'none';
+      overlay.style.display = 'none';
     })
   }
 
@@ -205,11 +215,10 @@ const deleteItemText = () => {
       const element = postDeleteButton.title;
       const postItem = document.querySelector(`#${element}`);
       output.removeChild(postItem);
-      userPostOverlay.style.display = 'none';
+      overlay.style.display = 'none';
       deleteEntry('post-item', element);
     })
   }
 }
-
 
 export { userPostModal, postItemPhoto, displayPostOptions, editPostText, deleteItemText }
