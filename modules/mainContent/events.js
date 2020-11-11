@@ -53,8 +53,8 @@ const addPostItemToDb = () => {
   const userName = document.querySelector('#displayName')
   const bioPhoto = document.querySelector('#displayPicture').src
   const userPhoto = document.querySelector('#userPhoto').src
-  const postItemId = 'id' + Math.random().toString(36).substring(7); //2
-  const modalId = 'id' + Math.random().toString(36).substring(7);  //1
+  const postItemId = 'id' + Date.parse(new Date()).toString();
+  const modalId = 'id' + Math.random().toString(36).substring(7);
 
   let userEntryItem = `
     <section class="post-container" id=${postItemId}>
