@@ -7,31 +7,26 @@ import toggleLeftNavModal from './modules/sideNav/events.js';
 import { dropdown, addBioProfileEventListeners } from './modules/topNav/events.js';
 import { request } from './dataStorage.js';
 import { userPostModal, postItemPhoto } from './modules/mainContent/events.js';
-import { getPostItemsFromDb, getBioProfileFromDb } from './modules/mainContent/userEntry.js';
+import getPostItemsFromDb from './modules/mainContent/getEntry.js';
 
-const app = () => {
+const app = async () => {
   return `
-    ${ModalNav()}
-    ${TopNav()}
-    ${LeftSideNav()}
+    ${await ModalNav()}
+    ${await TopNav()}
+    ${await LeftSideNav()}
     <section class="grid-container">
-      ${MainContent()}
+      ${await MainContent()}
       ${RightSideNav()}
     </section>
   `
 }
 
-request.onsuccess = () => { 
-  document.getElementById('root').innerHTML = app();
+request.onsuccess = async () => { 
+  document.getElementById('root').innerHTML = await app();
   toggleLeftNavModal();
   dropdown();
-  userPostModal(); //opens and close the post modal
-  addBioProfileEventListeners() // adds bio profile
-  postItemPhoto(); // adds post item photo event
-  getPostItemsFromDb(); //gets post item from db
-  getBioProfileFromDb(); // get bio profile from db 
-}
-
-request.onerror = () => {
-  console.log('error accessing indexDb');
+  userPostModal();
+  addBioProfileEventListeners()
+  postItemPhoto();
+  getPostItemsFromDb();
 }
