@@ -1,10 +1,13 @@
-const LeftSideNav = () => {
+import { getEntryFromDb } from '../../dataStorage.js';
+
+const LeftSideNav = async () => {
+  const bioEntry = await getEntryFromDb('bio');
   return `
     <nav class="left-side-nav">
       <a href="#">
-        <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
         class="nav-image bio-photo" alt="my profile picture">
-        <span class="user-name">Jane Doe</span>
+        <span class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</span>
       </a>
       <a href="#"><i class='fas fa-user-friends'></i>Friends</a>
       <a href="#"><i class='fab fa-facebook-messenger'></i>Messenger</a>

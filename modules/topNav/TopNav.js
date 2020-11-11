@@ -1,4 +1,7 @@
-const TopNav = () => {
+import { getEntryFromDb } from '../../dataStorage.js';
+
+const TopNav = async () => {
+  const bioEntry = await getEntryFromDb('bio');
   return `
     <nav class="top-nav">
       <a href="#" class="logo"><i class="fab fa-facebook"></i></a>
@@ -14,9 +17,9 @@ const TopNav = () => {
       </span>
       <span class="secondary-nav-links">
         <a href="#" class="image-link">
-          <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
           class="nav-image bio-photo" alt="my profile picture">
-          <strong class="user-name">Jane Doe</strong>
+          <strong class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
         </a>
         <span>
           <a href="#" class="icon-link"><i class='fas fa-plus'></i></a>
@@ -29,7 +32,7 @@ const TopNav = () => {
     </nav>
     <div id="message">
       <strong>ENTRY ADDED SUCCESSFULLY</strong>
-      <button class="message-btn button">OK</button>
+      <button class="message-btn">OK</button>
     </div>
   `
 }

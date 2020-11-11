@@ -1,27 +1,13 @@
-const ModalNav = () => {
+import { getEntryFromDb } from '../../dataStorage.js';
+
+const ModalNav = async () => {
+const bioEntry = await getEntryFromDb('bio');
   return `
-    <div id="dropdown-overlay"></div>
-    <div class="edit-profile-modal">
-      <h3>Edit Profile</h3>
-      <form class="bio-form">
-        <div class="profile-entry">
-          <div>
-            <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            id="photo" alt="photo">
-            <input type="file" id="profilePhoto">
-            <label for="profilePhoto">
-              <strong id="editPhoto" tabindex="1">EDIT PHOTO</strong>
-            </label>
-          </div>
-          <input type="text" placeholder="Enter new name..."  id="profileInput" required/>
-        </div>
-        <button type="submit" id="editPhotoButton">OK</button>
-      </form>
-    </div>
+    <div id="overlay"></div>
     <div id="dropdown-content">
       <div class="profile-info">
         <a href="#">
-          <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
           id="dropdown-photo" class="bio-photo" alt="my profile picture">
         </a>  
         <div>
@@ -43,7 +29,6 @@ const ModalNav = () => {
       </a>
       <a href="#"><i class="glyphicon">&#xe163;</i><strong>Log Out</strong></a>
     </div>
-    <div id="createPostOverlay"></div>
     <div class="create-post-modal">
       <div id="createPost">
         <strong>Create Post</strong>
@@ -51,7 +36,7 @@ const ModalNav = () => {
       </div>
       <div id="userInfo"> 
         <a href="#">
-          <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
           id="displayPicture" class="profile-photo bio-photo" alt="my profile picture">
         </a>
         <strong id="displayName" class="user-name">Jane Doe</strong>
@@ -59,7 +44,7 @@ const ModalNav = () => {
       <div id="previewEntry">
         <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
         <button id="previewImageButton">X</button>
-        <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        <img src='https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'
         id="userPhoto" alt="photo">
       </div>
       <div class="post-options">
@@ -72,6 +57,24 @@ const ModalNav = () => {
         <a href="#"><i class="material-icons" id="smilyFaceIcon">&#xe420;</i></a>
       </div>
       <button id="userPostButton">POST</button>
+    </div>
+    <div class="edit-profile-modal">
+      <h3>Edit Profile</h3>
+      <form class="bio-form">
+        <div class="profile-entry">
+          <div>
+            <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
+            id="photo" alt="photo">
+            <input type="file" id="profilePhoto">
+            <label for="profilePhoto">
+              <strong id="editPhoto" tabindex="1">EDIT PHOTO</strong>
+            </label>
+          </div>
+          <input type="text" id="profileInput" value="${bioEntry[0] ? bioEntry[0].bioName : ' '}"
+          placeholder="Enter new name..." required/>
+        </div>
+        <button type="submit" id="editPhotoButton">SAVE</button>
+      </form>
     </div>
   `
 }

@@ -1,10 +1,13 @@
-const MainContent = () => {
+import { getEntryFromDb } from '../../dataStorage.js';
+
+const MainContent = async () => {
+  const bioEntry = await getEntryFromDb('bio');
   return `
     <section class="main-content">
       <div class="user-options">
         <div class="user-profile"> 
           <a href="#">
-            <img src="https://images.pexels.com/photos/5031633/pexels-photo-5031633.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
             class="profile-photo bio-photo" alt="my profile picture">
           </a>
           <textarea id="postInput" placeholder="What's on your mind?"></textarea>
