@@ -49,7 +49,6 @@ const getEntryFromDb = (storeName) => {
     }
 
     getData.onerror = () => {
-      console.log(`error adding to 'item'`)
       reject(getData.error);
     }
   })
