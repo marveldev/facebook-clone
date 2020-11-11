@@ -1,16 +1,22 @@
 import { addEntryToDb, clearAllEntries } from '../../dataStorage.js';
 
 const dropdown = () => {
-  const root = document.querySelector('#root');
   const openTopNavDropdown = document.querySelector('#open-nav-dropdown');
   const closeTopNavDropdown = document.querySelector('#close-nav-dropdown');
-  const dropdownOverlay = document.querySelector('#dropdown-overlay');
+  const overlay = document.querySelector('#overlay');
   const toggleBox = document.querySelector('#toggleBox');
   const dropdownContent = document.querySelector('#dropdown-content');
+  const messageButton = document.querySelector('.message-btn');
+  const root = document.querySelector('#root');
 
   root.className = localStorage.getItem('theme');
   document.querySelector('body').style.backgroundColor = localStorage.getItem('background-color');
   root.className === 'dark-theme' ? toggleBox.checked = true : toggleBox.checked = false;
+
+  messageButton.addEventListener('click', () => {
+    const message = document.querySelector('#message');
+    message.style.display = 'none';
+  })
 
   const toggleDropdown = (
     dropdownDisplay,
@@ -19,7 +25,7 @@ const dropdown = () => {
     closeButtonDisplay
   ) => {
     dropdownContent.style.display = dropdownDisplay;
-    dropdownOverlay.style.display = overlayDisplay;
+    overlay.style.display = overlayDisplay;
     openTopNavDropdown.style.display = openButtonDisplay;
     closeTopNavDropdown.style.display = closeButtonDisplay;
   }
@@ -32,7 +38,7 @@ const dropdown = () => {
     toggleDropdown('none', 'none', 'inline-block', 'none');
   })
 
-  dropdownOverlay.addEventListener('click', () => {
+  overlay.addEventListener('click', () => {
     toggleDropdown('none', 'none', 'inline-block', 'none');
     document.querySelector('.edit-profile-modal').style.display = 'none';
   })
@@ -49,11 +55,11 @@ const dropdown = () => {
       localStorage.setItem('background-color', '#18191A')
     }
     else {
-      root.className = 'root';
+      root.className = 'light-theme';
       document.querySelector('body').style.backgroundColor = '#F0F2F5';
       toggleBox.checked = false
 
-      localStorage.setItem('theme', 'root')
+      localStorage.setItem('theme', 'light-theme')
       localStorage.setItem('background-color', '#F0F2F5')
     }
   })
@@ -61,7 +67,6 @@ const dropdown = () => {
   const profileInfo = document.querySelector('.profile-info');
   profileInfo.addEventListener('click', () => {
     document.querySelector('.edit-profile-modal').style.display = 'block';
-    dropdownOverlay.style.display = 'block';
     dropdownContent.style.display = 'none';
   })
 }
@@ -69,6 +74,9 @@ const dropdown = () => {
 const addBioProfileEventListeners = () => {
   const profilePhoto = document.querySelector('#profilePhoto');
   const bioPhoto = document.querySelector('#photo');
+  const bioForm = document.querySelector('.bio-form');
+  const overlay = document.querySelector('#overlay');
+
   profilePhoto.addEventListener('change', () => {
     const photoReader = new FileReader();
     photoReader.readAsDataURL(profilePhoto.files[0])
@@ -77,8 +85,6 @@ const addBioProfileEventListeners = () => {
     })
   })
 
-  const bioForm = document.querySelector('.bio-form');
-
   bioForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const bioName = document.querySelector('#profileInput').value;
@@ -86,7 +92,7 @@ const addBioProfileEventListeners = () => {
     const photoSource = bioPhoto.src
 
     document.querySelector('.edit-profile-modal').style.display = 'none';
-    document.querySelector('#dropdown-overlay').style.display = 'none';
+    overlay.style.display = 'none';
     
     const bioPhotos = document.querySelectorAll('.bio-photo')
     for (let index = 0; index < bioPhotos.length; index++) {
@@ -95,6 +101,7 @@ const addBioProfileEventListeners = () => {
     }
     
     const userNames = document.querySelectorAll('.user-name')
+    console.log(userNames);
     for (let index = 0; index < userNames.length; index++) {
       const userName = userNames[index];
       userName.innerText = bioName;  
