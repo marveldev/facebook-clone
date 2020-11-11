@@ -191,13 +191,15 @@ input:checked + .slider:before {
   top: 0;
   left: 0;
   right: 0;
-  height: 5em;
-  padding: 1.5em;
+  margin: auto;
+  height: 4.2em;
+  width: 30%;
+  padding: 1em 0;
+  color: #000;
   text-align: center;
-  color: #fff;
   animation-name: slide;
   animation-duration: 1s;
-  background-color: #03a803;
+  background-color: #8ED0F9;
   z-index: 1;
 }
 
@@ -212,8 +214,9 @@ input:checked + .slider:before {
 }
 
 .message-btn {
+  border: unset;
+  border-radius: 1.8em;
+  font-weight: 700;
   width: 4em;
   height: 2em;
-  color: #000000;
-  font-weight: 700;
 }
