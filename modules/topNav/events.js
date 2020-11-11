@@ -1,11 +1,16 @@
 import { addEntryToDb, clearAllEntries } from '../../dataStorage.js';
 
 const dropdown = () => {
+  const root = document.querySelector('#root');
   const openTopNavDropdown = document.querySelector('#open-nav-dropdown');
   const closeTopNavDropdown = document.querySelector('#close-nav-dropdown');
   const dropdownOverlay = document.querySelector('#dropdown-overlay');
   const toggleBox = document.querySelector('#toggleBox');
   const dropdownContent = document.querySelector('#dropdown-content');
+
+  root.className = localStorage.getItem('theme');
+  document.querySelector('body').style.backgroundColor = localStorage.getItem('background-color');
+  root.className === 'dark-theme' ? toggleBox.checked = true : toggleBox.checked = false;
 
   const toggleDropdown = (
     dropdownDisplay,
@@ -36,14 +41,20 @@ const dropdown = () => {
 
   themeSwitcher.addEventListener('click', () => {
     if (toggleBox.checked === false) {
-      document.querySelector('#root').className = 'dark-theme';
+      root.className = 'dark-theme';
       document.querySelector('body').style.backgroundColor = '#18191A';
       toggleBox.checked = true
+
+      localStorage.setItem('theme', 'dark-theme')
+      localStorage.setItem('background-color', '#18191A')
     }
     else {
-      document.querySelector('#root').className = 'root';
+      root.className = 'root';
       document.querySelector('body').style.backgroundColor = '#F0F2F5';
       toggleBox.checked = false
+
+      localStorage.setItem('theme', 'root')
+      localStorage.setItem('background-color', '#F0F2F5')
     }
   })
 
@@ -67,7 +78,7 @@ const addBioProfileEventListeners = () => {
   })
 
   const bioForm = document.querySelector('.bio-form');
-  
+
   bioForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const bioName = document.querySelector('#profileInput').value;
