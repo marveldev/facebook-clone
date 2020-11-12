@@ -6,17 +6,20 @@ const dropdown = () => {
   const overlay = document.querySelector('#overlay');
   const toggleBox = document.querySelector('#toggleBox');
   const dropdownContent = document.querySelector('#dropdown-content');
-  const messageButton = document.querySelector('.message-btn');
   const root = document.querySelector('#root');
 
   root.className = localStorage.getItem('theme');
   document.querySelector('body').style.backgroundColor = localStorage.getItem('background-color');
   root.className === 'dark-theme' ? toggleBox.checked = true : toggleBox.checked = false;
 
-  messageButton.addEventListener('click', () => {
-    const message = document.querySelector('#message');
-    message.style.display = 'none';
-  })
+  const messageButtons = document.querySelectorAll('.message-btn');
+  for (let index = 0; index < messageButtons.length; index++) {
+    const messageButton = messageButtons[index];
+    messageButton.addEventListener('click', () => {
+      const message = messageButton.parentElement;
+      message.style.display = 'none';
+    })
+  }
 
   const toggleDropdown = (
     dropdownDisplay,
@@ -88,27 +91,29 @@ const addBioProfileEventListeners = () => {
   bioForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const bioName = document.querySelector('#profileInput').value;
-    const bioPhoto = document.querySelector('#photo');
-    const photoSource = bioPhoto.src
+    if (bioName.trim().length >= 1) {
+      const bioPhoto = document.querySelector('#photo');
+      const photoSource = bioPhoto.src
 
-    document.querySelector('.edit-profile-modal').style.display = 'none';
-    overlay.style.display = 'none';
+      document.querySelector('.edit-profile-modal').style.display = 'none';
+      overlay.style.display = 'none';
     
-    const bioPhotos = document.querySelectorAll('.bio-photo')
-    for (let index = 0; index < bioPhotos.length; index++) {
-      const bioPhoto = bioPhotos[index];
-      bioPhoto.src = photoSource
-    }
+      const bioPhotos = document.querySelectorAll('.bio-photo')
+      for (let index = 0; index < bioPhotos.length; index++) {
+        const bioPhoto = bioPhotos[index];
+        bioPhoto.src = photoSource
+      }
     
-    const userNames = document.querySelectorAll('.user-name')
-    console.log(userNames);
-    for (let index = 0; index < userNames.length; index++) {
-      const userName = userNames[index];
-      userName.innerText = bioName;  
-    }
+      const userNames = document.querySelectorAll('.user-name')
+      console.log(userNames);
+      for (let index = 0; index < userNames.length; index++) {
+        const userName = userNames[index];
+        userName.innerText = bioName;  
+      }
 
-    clearAllEntries('bio');
-    addEntryToDb('bio', { bioName, photoSource })
+      clearAllEntries('bio');
+      addEntryToDb('bio', { bioName, photoSource })
+    }
   })
 }
 
