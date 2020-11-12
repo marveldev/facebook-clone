@@ -27,7 +27,7 @@ const getPostItemsFromDb = async () => {
         <p id="userText" class=${singleEntry.modalId}>${singleEntry.userPost}</p>
         <div class="photo-content">
           <a href="#">
-            <img src=${singleEntry.userPhoto} class="add-photo" alt="photo">
+            <img src=${singleEntry.userPhoto} class="add-photo" alt="">
           </a>
           <div class="tweet-options">
             <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>

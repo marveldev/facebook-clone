@@ -21,23 +21,16 @@ const userPostModal = () => {
     }
   })
 
-     for (let index = 0; index < inputs.length; index++) {
-      const input = inputs[index];
-      input.addEventListener('keyup', () => {
-        if (input.value.trim().length >= 1) {
-          const element = input.id
-          const tweetButton = document.querySelector(`[title=${element}]`);
-          tweetButton.removeAttribute('disabled')
-        } else {
-          const element = input.id
-          const tweetButton = document.querySelector(`[title=${element}]`);
-          tweetButton.setAttribute('disabled', '')
-        }
-      })
+  const userPostInput = document.querySelector('#userPostInput');
+  userPostInput.addEventListener('keyup', () => {
+    if (userPostInput.value.trim().length >= 1) {
+      userPostButton.removeAttribute('disabled')
+    } else {
+      userPostButton.setAttribute('disabled', '')
     }
-    
+  })
+
   userPostButton.addEventListener('click', () => {
- 
     toggleUserPostModal('none');
     addPostItemToDb();
   })
@@ -60,17 +53,26 @@ const userPostModal = () => {
   closePostModalButton.addEventListener('click', () => {
     toggleUserPostModal('none');
   })
+
+  const previewImageButton = document.querySelector('#previewImageButton');
+  previewImageButton.addEventListener('click', () => {
+    previewImageButton.parentElement.style.display = 'none';
+    previewImageButton.nextElementSibling.src = '//:0';
+  })
 }
 
 const postItemPhoto = () => {
   const photo = document.querySelector('#addPhoto');
   const userPhoto = document.querySelector('#userPhoto');
+  const userPostButton = document.querySelector('#userPostButton');
   
   photo.addEventListener('change', () => {
     const photoReader = new FileReader();
     photoReader.readAsDataURL(photo.files[0])
     photoReader.addEventListener('load', () => {
       userPhoto.src = photoReader.result;
+      document.querySelector('.photo-container').style.display = 'block';
+      userPostButton.removeAttribute('disabled');
     })
   })
 }
@@ -105,7 +107,7 @@ const addPostItemToDb = () => {
       <p id="userText" class="${modalId}">${userPost}</p>
       <div class="photo-content">
         <a href="#">
-          <img src="${userPhoto}" class="add-photo" alt="photo">
+          <img src="${userPhoto}" class="add-photo" alt="">
         </a>
         <div class="tweet-options">
           <a href="#"><i class="fa fa-thumbs-o-up"></i>Like</a>
