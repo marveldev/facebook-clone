@@ -24,6 +24,10 @@
   background-color:#3A3B3C;
 }
 
+.dark-theme .tweet-options {
+  border-top: 1px solid #3A3B3C;
+}
+
 .dark-theme .chat-options a,
 .dark-theme .tweet-options a {
   color: #E4E6EB;
@@ -146,10 +150,6 @@
   background-color: #505151;
 }
 
-.dark-theme #dropdown-overlay {
-  background-color: #0e0e0e9d; 
-}
-
 .dark-theme .post-container {
   background-color: #242526;
 }
@@ -197,4 +197,12 @@
 .dark-theme #profileInput {
   background-color: #3A3B3C;
   color: #E4E6EB;
+}
+
+.dark-theme .delete-modal {
+  background-color: #242526;
+}
+
+.cancel-button {
+  background-color: #505151;
 }
