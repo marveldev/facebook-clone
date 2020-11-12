@@ -10,7 +10,7 @@ const MainContent = async () => {
             <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
             class="profile-photo bio-photo" alt="my profile picture">
           </a>
-          <textarea id="postInput" placeholder="What's on your mind?"></textarea>
+          <textarea id="postInput" placeholder="What's on your mind?" readonly></textarea>
         </div>
         <div class="chat-options">
           <a href="#"><i class="material-icons">&#xe413;</i>Photo/Video</a>
