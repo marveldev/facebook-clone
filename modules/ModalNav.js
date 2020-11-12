@@ -39,13 +39,15 @@ const bioEntry = await getEntryFromDb('bio');
           <img src="${bioEntry[0] ? bioEntry[0].photoSource : 'https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'}"
           id="displayPicture" class="profile-photo bio-photo" alt="my profile picture">
         </a>
-        <strong id="displayName" class="user-name">Jane Doe</strong>
+        <strong id="displayName" class="user-name">${bioEntry[0] ? bioEntry[0].bioName : 'Jane Doe'}</strong>
       </div>
       <div id="previewEntry">
         <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
-        <button id="previewImageButton">X</button>
-        <img src='https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG'
-        id="userPhoto" alt="photo">
+        <div class="photo-container">
+          <button id="previewImageButton">X</button>
+          <img src='https://history.ucr.edu/sites/g/files/rcwecm1916/files/styles/form_preview/public/blank-profile-picture-png.png?itok=MQ-iPuNG' 
+          alt="photo" id="userPhoto">
+        </div>
       </div>
       <div class="post-options">
         <span>Add To Your Post</span>
