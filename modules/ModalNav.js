@@ -56,7 +56,7 @@ const bioEntry = await getEntryFromDb('bio');
         <a href="#"><i class='fas fa-user-tag' id="userTagIcon"></i></a>
         <a href="#"><i class="material-icons" id="smilyFaceIcon">&#xe420;</i></a>
       </div>
-      <button id="userPostButton">POST</button>
+      <button id="userPostButton" disabled>POST</button>
     </div>
     <div class="edit-profile-modal">
       <h3>Edit Profile</h3>
@@ -70,7 +70,7 @@ const bioEntry = await getEntryFromDb('bio');
               <strong id="editPhoto" tabindex="1">EDIT PHOTO</strong>
             </label>
           </div>
-          <input type="text" id="profileInput" value="${bioEntry[0] ? bioEntry[0].bioName : ' '}"
+          <input type="text" id="profileInput" value="${bioEntry[0] ? bioEntry[0].bioName : ''}"
           placeholder="Enter new name..." required/>
         </div>
         <button type="submit" id="editPhotoButton">SAVE</button>
