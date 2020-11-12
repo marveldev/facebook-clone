@@ -30,8 +30,12 @@ const TopNav = async () => {
         </span>
       </span>
     </nav>
-    <div id="message">
+    <div id="entryMessage" class="info">
       <strong>ENTRY ADDED SUCCESSFULLY</strong>
+      <button class="message-btn">OK</button>
+    </div>
+    <div id="bioMessage" class="info">
+      <strong>Please Update Your Profile.</strong>
       <button class="message-btn">OK</button>
     </div>
   `

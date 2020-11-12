@@ -24,11 +24,11 @@ const addEntryToDb = (storeName, entry) => {
   store.add(entry);
 
   transaction.oncomplete = () => {
-    const message = document.querySelector('#message');
-    message.style.display = 'block';
+    const entryMessage = document.querySelector('#entryMessage');
+    entryMessage.style.display = 'block';
 
     setTimeout(function() {
-      message.style.display = 'none';
+      entryMessage.style.display = 'none';
     }, 4000);
   }
 
