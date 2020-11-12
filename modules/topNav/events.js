@@ -105,7 +105,6 @@ const addBioProfileEventListeners = () => {
       }
 
       const userNames = document.querySelectorAll('.user-name')
-      console.log(userNames);
       for (let index = 0; index < userNames.length; index++) {
         const userName = userNames[index];
         userName.innerText = bioName;  
