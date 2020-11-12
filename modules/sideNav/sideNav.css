@@ -207,3 +207,89 @@
   background-color: #1877F2;
   color: #fff;
 }
+
+@media screen and (max-width: 425px) {
+  #dropdown-content {
+    margin-top: 0.5em;
+  }
+
+  #dropdown-content>a:nth-child(6) {
+    padding: 1.2em 1em 0;
+    height: 3.5em; 
+  }
+
+  .switch {
+    margin: 0 8em;
+    bottom: 1.8em;
+  }
+
+  .edit-profile-modal {
+    width: 30.5em;
+    height: 22em;
+  }
+
+  .edit-profile-modal>h3{
+    margin: 0.5em;
+  }
+
+  .edit-post-buttons {
+    left: 6em;
+  }
+
+  .edit-post-modal {
+    left: 0em;
+    width: 30.5em;
+  }
+
+  .close-edit-modal {
+    left: 6em;
+  }
+
+  .left-side-nav {
+    display: none;
+  }
+  
+  .right-side-nav {
+    display: none;
+  }
+  
+  .primary-nav-links {
+    display: none;
+  }
+
+  .profile-entry {
+    font-size: 0.8em;
+    width: 35em;
+  }
+
+  #photo {
+    margin: 0 1.5em;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #dropdown-content {
+    left: 2em;
+  }
+
+  .edit-post-buttons {
+    left: 3em;
+  }
+}
+
+@media screen and (max-width: 355px) and (min-width: 320px) { 
+  .edit-post-buttons {
+    left: 0em;
+  }
+
+  .edit-post-modal {
+    left: 0em;
+    top: 10em;
+    font-size: 0.75em;
+  }
+
+  .edit-profile-modal {
+    font-size: 0.75em;
+    top: 10em;
+  }
+}

@@ -418,3 +418,86 @@
   font-size: 1.8em;
   text-align: center;
 }
+
+@media screen and (max-width: 425px) {
+  .grid-container {
+    left: 0em;
+    top: 7em;
+    display: block;
+    grid-template-columns: 2fr;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-content { 
+    margin: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .output {
+    width: 100%;
+  }
+
+  .tweet-options a {
+    margin: 0;
+  }
+
+  .create-post-modal {
+    left: 0;
+    font-size: 0.85em;
+    top: 7em;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .delete-modal {
+    width: 100%;
+  }
+
+  .delete-modal button {
+    color: #fff;
+  }
+
+  .chat-options a {
+    padding: 0.8em 0.5em;
+    margin-left: 0.5em;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .tweet-options>a {
+    font-size: 1.15em;
+  }
+
+  .chat-options a {
+    padding: 0.2em 0em;
+  }
+
+  .create-post-modal {
+    font-size: 0.78em;
+    top: 9em;
+  }
+}
+
+@media screen and (max-width: 355px) and (min-width: 320px) { 
+  .tweet-options>a {
+    padding: 0.5em 0.8em;
+  }
+
+  .chat-options a {
+    padding: 0.5em;
+    margin: 1em;
+  }
+
+  .chat-options a:last-child {
+    display: none;
+  }
+
+  .create-post-modal {
+    font-size: 0.65em;
+    top: 10em;
+  }
+}

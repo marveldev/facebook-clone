@@ -219,3 +219,63 @@ input:checked + .slider:before {
   width: 4em;
   height: 2em;
 }
+
+@media screen and (max-width: 425px) {
+  .image-link {
+    display: none;
+  } 
+
+  .top-nav {
+    height: 5em;
+    font-size: 1em;
+  }
+
+  .logo {
+    margin-left: 0.1em;
+  }
+
+  .search-input input {
+    width: 10em;
+    height: 3em;
+    padding-left: 0.8em;
+  }
+
+  .secondary-nav-links {
+    margin-left: 0.5em;
+  }
+
+  .search-input>i {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .search-input input {
+    width: 7em;
+  }
+}
+
+@media screen and (max-width: 355px) and (min-width: 320px) { 
+  .secondary-nav-links a {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+  }
+
+  #open-nav-dropdown,
+  #close-nav-dropdown {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+  }
+
+  .switch {
+    left: 7em;
+  }
+
+  #dropdown-content {
+    left: 0;
+  }
+
+  .search-input input {
+    width: 5em;
+  }
+}
