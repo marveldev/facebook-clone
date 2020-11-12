@@ -1,4 +1,4 @@
-import { addEntryToDb, deleteEntry, updateEntry } from '../../dataStorage.js';
+import { addEntryToDb, getEntryFromDb, deleteEntry, updateEntry } from '../../dataStorage.js';
 
 const userPostModal = () => {
   const userPostModal = document.querySelector('#postInput');
@@ -11,11 +11,33 @@ const userPostModal = () => {
     overlay.style.display = value;
   }
 
-  userPostModal.addEventListener('click', () => {
-    toggleUserPostModal('block');
+  userPostModal.addEventListener('click', async () => {
+    const bioEntry = await getEntryFromDb('bio');
+    if (bioEntry.length === 1) {
+      toggleUserPostModal('block');
+    } else {
+      const bioMessage = document.querySelector('#bioMessage');
+      bioMessage.style.display = 'block';
+    }
   })
+
+     for (let index = 0; index < inputs.length; index++) {
+      const input = inputs[index];
+      input.addEventListener('keyup', () => {
+        if (input.value.trim().length >= 1) {
+          const element = input.id
+          const tweetButton = document.querySelector(`[title=${element}]`);
+          tweetButton.removeAttribute('disabled')
+        } else {
+          const element = input.id
+          const tweetButton = document.querySelector(`[title=${element}]`);
+          tweetButton.setAttribute('disabled', '')
+        }
+      })
+    }
     
   userPostButton.addEventListener('click', () => {
+ 
     toggleUserPostModal('none');
     addPostItemToDb();
   })
@@ -104,7 +126,7 @@ const addPostItemToDb = () => {
           <strong id="displayName" class="user-name">${userName ? userName.innerText : 'Jane Doe'}</strong>
         </div>
         <textarea id="userPostInput" placeholder="What's on your mind?"></textarea>
-        <button id="userPostButton" title=${modalId}>Save</button>
+        <button class="save-text-button" title=${modalId}>Save</button>
       </div>
       <div class="delete-modal ${postItemId}">
         <h3>Delete Tweet?</h3>
@@ -158,12 +180,11 @@ const editPostText = () => {
 
   const savePostButtons = document.querySelectorAll('.save-text-button')
   for (let index = 0; index < savePostButtons.length; index++) {
-    const savePostButton = savePostButtons[index];
+    const savePostButton = savePostButtons[index]
     savePostButton.addEventListener('click', () => {
       const newUserText = savePostButton.previousElementSibling.value;
       const elementId = savePostButton.title;
       const oldUserText = document.querySelector(`.${elementId}`);
-      console.log(oldUserText);
       oldUserText.innerHTML = newUserText;
       savePostButton.parentElement.style.display = 'none';
       overlay.style.display = 'none';
