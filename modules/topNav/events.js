@@ -97,19 +97,21 @@ const addBioProfileEventListeners = () => {
 
       document.querySelector('.edit-profile-modal').style.display = 'none';
       overlay.style.display = 'none';
-    
+
       const bioPhotos = document.querySelectorAll('.bio-photo')
       for (let index = 0; index < bioPhotos.length; index++) {
         const bioPhoto = bioPhotos[index];
         bioPhoto.src = photoSource
       }
-    
+
       const userNames = document.querySelectorAll('.user-name')
       console.log(userNames);
       for (let index = 0; index < userNames.length; index++) {
         const userName = userNames[index];
         userName.innerText = bioName;  
       }
+
+      document.querySelector('#bioMessage').style.display = 'none';
 
       clearAllEntries('bio');
       addEntryToDb('bio', { bioName, photoSource })
